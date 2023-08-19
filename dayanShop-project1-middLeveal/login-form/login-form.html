@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="login-form.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+
+    <script type="module" src="login-form.js" defer></script>
+</head>
+
+<body class="flex-center-column">
+    <section class="contain-pre-loader flex-center display-none">
+        <div class="preloader-change-page flex-center display-none">
+            <img src="pre-loader/shop.gif" alt="" />
+        </div>
+        <div class="fake-background-load display-none"></div>
+    </section>
+    <section class="modals flex-center ">
+        <div class="login-error flex-center display-none">
+            <p>لطفا اطلاعات خواسته شده را به درستی وارد کنید</p>
+        </div>
+    </section>
+
+    <div id="all" class="flex-center-column">
+
+        <header class="info-search-hearde">
+            <div class="contain-accessibility-header">
+                <div class="user-react-header flex-center">
+                    <div class="enter-user-header flex-center">
+                        <span class="enter-text-header">ورود / عضویت</span>
+                    </div>
+                    <div class="basket-user-header flex-center">
+                        <div class="contain-user-icon flex-center">
+                            <i class="icon-user-header fas fa-user"></i>
+                        </div>
+                        <span class="basket-text-header">سبد خرید شما</span
+              ><i class="icon-basket-header fa"> &#xf07a;</i>
+            </div>
+          </div>
+          <div class="search-box-header flex-center">
+            <input
+              type="text"
+              name=""
+              id="search-input-header"
+              placeholder="محصول مورد نظر خود را جستجو کنید ..."
+            />
+            <div class="contain-icon-search">
+              <a class="icon-search-header"></a>
+            </div>
+          </div>
+          <div class="logo-shop-header flex-center">
+            <img
+              src="images/logo.png"
+              alt="logo of web"
+              class="image-logo-header"
+            />
+          </div>
+          <div class="menu-bar-header">
+            <i class="icon-menu-bar fa fa-bars"></i>
+          </div>
+        </div>
+        <nav class="contain-menu-header flex-center">
+          <i class="back-icon-header fa"> &#xf060;</i>
+          <div class="contain-close-menu flex-center">
+            <span class="close-menu-header">x</span>
+                    </div>
+                    <ul class="menu-lists-header flex-center"></ul>
+                    </nav>
+        </header>
+
+        <div class="contain-page-shop flex-center">
+            <ul class="menu-page-shop flex-center"></ul>
+            <div class="contain-back-topage flex-center display-none">
+                <i class="icon-back-topage fa">&#xf060;</i>
+                <span class="text-back-topage">بازگشت به صفحه قبلی</span>
+            </div>
+        </div>
+
+        <div class="contain-login-form flex-center">
+            <form action="" class="login-form">
+                <!-- <div class="div-title-form"> -->
+                <h3 class="title-form">ورود به پنل کاربری</h1>
+                    <!-- </div> -->
+                    <div class="input-form">
+                        <span class="error-input" id="userError"></span>
+                        <input type="text" name="" id="username" placeholder="نام کاربری :" />
+                    </div>
+                    <div class="input-form" id="divPass">
+                        <span class="error-input" id="passError"></span>
+                        <input type="password" name="" id="password" placeholder="رمز عبور :" max="100" />
+
+                    </div>
+                    <button class="login-btn">ورود</button>
+                    <div class="sign-up flex-center">
+                        <h5 id="signUpIn">ثبت نام</h5>
+                    </div>
+            </form>
+        </div>
+
+        <div class="alert-product-situation flex-center">
+            <p class="alert-error-product">محصول مورد نظر شما یافت نشد</p>
+        </div>
+        <section class="contain-finally-shop">
+            <footer class="short-info-shop grid-center">
+                <div class="time-answer-shop flex-center">
+                    <span class="text-time-answer">ساعت پاسخگویی پشتیبانی شنبه تا پنج شنبه 9 تا 17</span
+            >
+          </div>
+          <div class="phone-answer-shop flex-center">
+            <i class="icon- phone-answer fa">&#xf095;</i>
+            <span class="text-phone-answer">شماره تماس: 05191001370</span>
+                </div>
+                <div class="email-answer-shop flex-center">
+                    <i class="icon-email-answer fa">&#xf0e0;</i>
+                    <span class="text-email-answer">آدرس ایمیل: info@dayanshop.com</span
+            >
+          </div>
+        </footer>
+        <div class="finally-menu-shop grid-center">
+          <div class="contain-finally-menu flex-center-column">
+            <h2 class="title-finally-menu">خدمات مشتریان</h2>
+            <ul class="finally-menu-self flex-center-column">
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">پشتیبانی مشتریان</a>
+              </li>
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">راهنمای خرید</a>
+              </li>
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">سوالات متداول</a>
+              </li>
+            </ul>
+          </div>
+          <div class="contain-finally-menu flex-center-column">
+            <h2 class="title-finally-menu">قوانین</h2>
+            <ul class="finally-menu-self flex-center-column">
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">حریم خصوصی</a>
+              </li>
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">قوانین بازگشت کالا</a>
+              </li>
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">شرایط استفاده</a>
+              </li>
+            </ul>
+          </div>
+          <div class="contain-finally-menu flex-center-column">
+            <h2 class="title-finally-menu">با فروشگاه اینترنتی دایان شاپ</h2>
+            <ul class="finally-menu-self flex-center-column">
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">درباره ما</a>
+              </li>
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">تماس با ما</a>
+              </li>
+              <li class="finally-menu-list">
+                <a href="" class="finally-menu-link">فرصت های شغلی</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>

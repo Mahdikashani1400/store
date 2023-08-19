@@ -1,0 +1,241 @@
+header {
+  width: 100%;
+}
+.header-page nav {
+  background: #ededed;
+  justify-content: space-between;
+}
+/* .container-menu img{
+    width: 24px;
+    height: 26px;
+    /* background-color: #919ca9; 
+
+}*/
+.container-menu i {
+  font-size: 26px;
+}
+.icon-menu i {
+  color: #919ca9;
+}
+.container-img {
+  width: 40px;
+  height: 35px;
+}
+.more-items span {
+  /* font-size: 13px; */
+}
+.header-page nav > div {
+  margin: 0.7rem 1.2rem;
+}
+.container-img img {
+  border-radius: 50%;
+}
+
+#adminItems {
+  display: none;
+}
+.more-items-active > ul {
+  display: flex !important;
+}
+.more-items {
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+.more-items ul {
+  position: absolute;
+  /* display: flex !important; */
+  transform: translateY(66%) translateX(0%);
+  background: #fff;
+  width: 175px;
+}
+.more-items li {
+  width: 100%;
+}
+.more-items a {
+  padding: 1rem;
+  width: 100%;
+  font-size: 12px;
+  color: #212529;
+  font-weight: 600;
+}
+.more-items a:hover {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+.more-items::after {
+  display: inline-block;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-left: 0.3em solid transparent;
+  border-bottom: 0;
+  border-right: 0.3em solid transparent;
+  font-size: 15px;
+  color: #666f79;
+}
+
+.menu {
+  display: none;
+  background: #2a3f54;
+  gap: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.open-mini-menu {
+  width: 70px;
+  /* right: -70px; */
+  display: flex;
+}
+.open-menu {
+  width: 230px;
+  /* right: -230px; */
+  display: flex;
+}
+/* body:not(.menu) {
+  margin-right: var(--space-body, 70px) !important;
+} */
+
+.icon-menu {
+  cursor: pointer;
+  /* display: none; */
+  /* margin-right: 80px; */
+}
+.active.item {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.active.item::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  /* bottom: 0; */
+
+  border-right: 5px solid #1abb9c;
+}
+
+.menu li {
+  width: 100%;
+  /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem; */
+}
+.menu li h1 {
+  margin: 1rem 0;
+  text-align: center;
+
+  /* font-size: 13px; */
+  color: #e7e7e7;
+}
+.open-mini-menu a {
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 12px;
+}
+.open-menu a {
+  gap: 0.7rem;
+  font-size: 14px;
+}
+.menu a {
+  padding: 1rem 0.7rem;
+  align-items: center;
+  display: flex;
+
+  color: #e7e7e7;
+  /* align-items: ; */
+}
+.open-menu-item {
+  display: none;
+}
+.open-menu .open-menu-item {
+  display: block !important;
+}
+.open-menu .contain-welcome {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0.7rem;
+}
+.open-menu .welcome-img {
+  width: 48px;
+  height: 46px;
+  border: 4px solid #fff;
+  /* padding: 2px; */
+  border-radius: 50%;
+}
+.open-menu .welcome-img img {
+  border-radius: 50%;
+}
+.open-menu .welcome-text span {
+  color: #bab8b8;
+}
+.open-menu .welcome-text h2 {
+  color: #fff;
+  padding-top: 0.5rem;
+}
+.close-menu {
+  width: 0;
+  visibility: hidden;
+}
+.explain-page {
+  width: 100%;
+  justify-content: space-between !important;
+  padding: 1rem;
+}
+.title-page {
+  width: 45%;
+}
+.title-page h3 {
+  color: #73879c;
+  font-size: 1.75rem;
+}
+.title-page h3 > small {
+  font-size: 80%;
+}
+small {
+  font-size: 80%;
+  font-weight: 400;
+}
+.search-page {
+  position: relative;
+  flex-grow: 1;
+  max-width: 22%;
+}
+#search {
+  width: 100%;
+  min-height: 2.2rem;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(147, 151, 157, 0.49);
+  outline: none;
+  padding: 0.3rem 0;
+  padding-right: 1rem;
+}
+.search-page i {
+  position: absolute;
+  display: flex;
+  left: 6px;
+  padding: 0.3rem;
+  padding-right: 0.5rem;
+  top: 0px;
+  border-right: 1px solid rgba(147, 151, 157, 0.49);
+  height: 100%;
+  align-items: center;
+  color: #007bff;
+  cursor: pointer;
+}
+input::placeholder {
+  /* font-size: 13px; */
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 770px) {
+  .search-page {
+    max-width: 45%;
+  }
+}

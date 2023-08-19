@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    <script src="app.js" async type="module"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-body flex-column">
+      <header-section
+        style="width: 100%"
+        title="افزودن و ویرایش تخفیف"
+        css-link="takhfifat/create-discount"
+      ></header-section>
+
+      <main class="main-page flex-column">
+        <header class="header-main flex-column">
+          <div class="title-main">
+            <h2>افزودن تخفیف</h2>
+          </div>
+        </header>
+        <section class="discount-info flex-column">
+          <header>
+            <h2>اطلاعات تخفیف</h2>
+          </header>
+          <div class="contain-info flex-column">
+            <div class="detail-info flex-row">
+              <label for="">نحوه تخفیف</label
+              ><select name="" id="">
+                <option value="تخفیف ثابت سبد خرید">تخفیف ثابت سبد خرید</option>
+                <option value="تخفیف درصدی سبد خرید">
+                  تخفیف درصدی سبد خرید
+                </option>
+                <option value="تخفیف ثابت گردونه شانس">
+                  تخفیف ثابت گردونه شانس
+                </option>
+                <option value="تخفیف درصدی گردونه شانس">
+                  تخفیف درصدی گردونه شانس
+                </option>
+              </select>
+            </div>
+            <div class="detail-info flex-row">
+              <label for=""> مبلغ تخفیف (تومان)</label
+              ><input
+                type="number"
+                value="100000"
+                name=""
+                id=""
+                min="100000"
+                step="10000"
+              />
+            </div>
+            <div class="detail-info flex-row">
+              <label for="">کد تخفیف</label><input type="text" name="" id="" />
+            </div>
+            <button class="btn-submit">ثبت اطلاعات</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

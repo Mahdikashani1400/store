@@ -1,0 +1,88 @@
+@import url("../../functions/css/reset.css");
+@import url("../../functions/css/font.css");
+@import url("../../functions/css/flex.css");
+@import url("../../functions/css/table-template.css");
+
+.new-item-table {
+  background: none;
+  border: none;
+}
+.new-item-table:hover {
+  background: none;
+  border: none;
+}
+.new-item-table select {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0 0.5rem;
+}
+.new-item-table select:focus {
+  outline: none;
+}
+/* .new-item-table:hover {
+  background: #169f85;
+} */
+/* .new-item-table a {
+  color: #fff;
+} */
+
+/* .new-item-table i {
+  border-right: 1px solid #ccc;
+} */
+
+#searchTitle {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding-right: 0.5rem;
+}
+.filter-item-table {
+  border: none;
+}
+.filter-item-table button {
+  border-radius: 4px;
+  color: #fff;
+  background-color: #286090;
+  border-color: #007bff;
+  transition: 0.3s;
+}
+.filter-item-table button:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+td img {
+  height: 50px;
+  width: 50px;
+  transform: translateY(12px);
+}
+
+.see-item-table {
+  color: #fff;
+  background-color: #286090;
+  border-color: #007bff;
+}
+.see-item-table:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+@media only screen and (max-width: 770px) {
+  td,
+  .btn-item-table button {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .btn-item-table button,
+  td {
+    font-size: 10px;
+  }
+}

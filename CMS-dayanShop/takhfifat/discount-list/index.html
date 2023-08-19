@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../functions/css/table-template.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="app.js" async type="module"></script>
+
+    <title>Document</title>
+  </head>
+
+  <body class="flex-column">
+    <div class="container-body flex-column">
+      <header-section
+        style="width: 100%"
+        title="بعضی از تخفیف های محصولات برای شروع کار شما"
+        css-link="takhfifat/discount-list"
+      ></header-section>
+
+      <!-- <header class="header-page flex-column">
+        <nav class="flex-row">
+          <div class="container-menu">
+            <div class="icon-menu"><i class="fa fa-bars"></i></div>
+            <ul class="menu flex-column open-mini-menu">
+              <li class="item-text"><h1>پنل ادمین</h1></li>
+
+              <li class="open-menu-item">
+                <div class="contain-welcome">
+                  <div class="welcome-img">
+                    <img src="./img/admin-photo.jpg" alt="" />
+                  </div>
+                  <div class="welcome-text">
+                    <span>خوش آمدید.</span>
+                    <h2>رضا پور موسوی</h2>
+                  </div>
+                </div>
+              </li>
+              <li class="item active">
+                <a href=""><i class="fa fa-home"></i><span>خانه</span></a>
+              </li>
+              <li class="item">
+                <a href=""
+                  ><i><img src="./img/Product-icon.png" alt="" /></i
+                  ><span>محصولات</span></a
+                >
+              </li>
+              <li class="item">
+                <a href=""><i class="fa fa-bars"></i><span>منو ها</span></a>
+              </li>
+              <li class="item">
+                <a href=""><i class="fa fa-clone"></i><span>اسلاید ها</span></a>
+              </li>
+              <li class="item">
+                <a href=""><i class="fa fa-percent"></i><span>تخفیفات</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="more-items flex-row">
+            <div class="container-img">
+              <img src="./img/admin-photo.jpg" alt="" />
+            </div>
+            <span>رضا پور موسوی</span>
+            <ul class="flex-column" id="adminItems">
+              <li><a href="#">پروفایل</a></li>
+              <li><a href="#">تنظیمات</a></li>
+              <li><a href="#">راهنما</a></li>
+              <li><a href="#">خروج</a></li>
+            </ul>
+          </div>
+        </nav>
+        <section class="flex-row explain-page">
+          <div class="title-page">
+            <h3>
+              تخفیف ها
+              <small> بعضی از تخفیف ها محصولات برای شروع کار شما</small>
+            </h3>
+          </div>
+          <div class="search-page">
+            <input
+              type="searchPage"
+              name=""
+              id="search"
+              placeholder="جستجو برای ..."
+            /><i class="fa fa-search"></i>
+          </div>
+        </section>
+      </header> -->
+
+      <main class="main-page flex-column">
+        <header class="header-main flex-column">
+          <div class="title-main">
+            <h2>لیست تخفیف ها</h2>
+          </div>
+          <div class="control-item-table discount flex-row">
+            <form action="" class="flex-row">
+              <div class="item-table new-item-table discount">
+                <a href="../create-discount/index.html">ایجاد تخفیف</a
+                ><i class="fa fa-plus"></i>
+              </div>
+
+              <div class="search-item-table discount">
+                <input
+                  type="search"
+                  name=""
+                  id="searchDiscount"
+                  placeholder="جستجو بر حسب کد تخفیف"
+                />
+                <i class="fa fa-tags"></i>
+              </div>
+              <div class="filter-item-table discount">
+                <button>فیلتر</button><i class="fa fa-search"></i>
+              </div>
+            </form>
+          </div>
+        </header>
+        <section class="contain-table">
+          <table class="table-item-table discount">
+            <thead>
+              <tr>
+                <th class="state-item-table discount">وضعیت</th>
+                <th class="code-item-table discount">کد</th>
+                <th>نوع تخفیف</th>
+                <th><span>مبلغ </span>تخفیف</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    name="select-item-table discount"
+                    id=""
+                  />
+                </td>
+                <td>abc123</td>
+                <td>
+                  <select name="" class="item-table discount-kind">
+                    <optgroup label="ثابت">
+                      <option value="ریالی">ریالی</option>
+                      <option value="">درصدی</option>
+                    </optgroup>
+                    <optgroup label="گردونه شانس">
+                      <option value="ریالی">ریالی</option>
+                      <option value="">درصدی</option>
+                    </optgroup>
+                  </select>
+                </td>
+                <td>1000</td>
+                <td>
+                  <div class="btn-item-table discount flex-row">
+                    <button class="edit-item-table discount">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a></button
+                    ><button class="remove-item-table discount flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    name="select-item-table discount"
+                    id=""
+                  />
+                </td>
+                <td>abc123</td>
+                <td>
+                  <select name="" class="item-table discount-kind">
+                    <optgroup label="ثابت">
+                      <option value="ریالی">ریالی</option>
+                      <option value="">درصدی</option>
+                    </optgroup>
+                    <optgroup label="گردونه شانس">
+                      <option value="ریالی">ریالی</option>
+                      <option value="">درصدی</option>
+                    </optgroup>
+                  </select>
+                </td>
+                <td>1000</td>
+                <td>
+                  <div class="btn-item-table discount flex-row">
+                    <button class="edit-item-table discount">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+                    <button class="remove-item-table discount flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    name="select-item-table discount"
+                    id=""
+                  />
+                </td>
+                <td>abc123</td>
+                <td>
+                  <select name="" class="item-table discount-kind">
+                    <optgroup label="ثابت">
+                      <option value="ریالی">ریالی</option>
+                      <option value="">درصدی</option>
+                    </optgroup>
+                    <optgroup label="گردونه شانس">
+                      <option value="ریالی">ریالی</option>
+                      <option value="">درصدی</option>
+                    </optgroup>
+                  </select>
+                </td>
+                <td>1000</td>
+                <td>
+                  <div class="btn-item-table discount flex-row">
+                    <button class="edit-item-table discount">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+                    <button class="remove-item-table discount flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <article class="change-page flex-row">
+          <a class="previous-page next-previous">قبلی</a>
+          <a class="page-number activ-page">1</a><a class="page-number">2</a
+          ><a class="next-page next-previous">بعدی</a>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

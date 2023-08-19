@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+    <title>Document</title>
+    <link rel="stylesheet" href="explain-of-product.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script type="module" src="explain-of-product.js" async></script>
+
+</head>
+
+<body class="flex-center-column">
+
+    <section class="contain-pre-loader flex-center display-none">
+        <div class="preloader-change-page flex-center display-none">
+            <img src="../pre-loader/shop.gif" alt="">
+        </div>
+        <div class="fake-background-load display-none"></div>
+
+    </section>
+    <section class="section-modal-handle flex-center display-none">
+        <div class="contain-size-error">
+            <p class="text-size-error">لطفا سایز مد نظر خود را انتخاب کنید</p>
+        </div>
+    </section>
+    <div id="all">
+
+        <header class="info-search-hearde">
+            <div class="contain-accessibility-header">
+                <div class="user-react-header flex-center">
+
+                    <div class="enter-user-header flex-center"><span class="enter-text-header">ورود / عضویت</span></div>
+                    <div class="basket-user-header flex-center">
+                        <div class="contain-user-icon flex-center"><i class="icon-user-header fas fa-user"></i></div>
+                        <span class="basket-text-header">سبد خرید شما</span><i class="icon-basket-header fa">	&#xf07a;</i>
+                    </div>
+                </div>
+                <div class="search-box-header flex-center">
+                    <input type="text" name="" id="search-input-header" placeholder="محصول مورد نظر خود را جستجو کنید ...">
+                    <div class="contain-icon-search">
+                        <i class="icon-search-header"></i>
+                    </div>
+                </div>
+                <div class="logo-shop-header flex-center"><img src="../images/logo.png" alt="logo of web" class="image-logo-header"></div>
+                <div class="menu-bar-header"><i class="icon-menu-bar fa fa-bars"></i></div>
+            </div>
+            <nav class="contain-menu-header flex-center">
+                <i class="back-icon-header fa">	&#xf060;</i>
+                <div class="contain-close-menu flex-center"><span class="close-menu-header">x</span></div>
+                <ul class="menu-lists-header flex-center"> </ul>
+            </nav>
+
+        </header>
+
+        <div class="contain-back-topage flex-center display-none">
+            <i class="icon-back-topage fa">&#xf060;</i>
+            <span class="text-back-topage">بازگشت به صفحه اصلی</span>
+        </div>
+        <div class="alert-product-situation flex-center">
+            <p class="alert-error-product">
+                محصول مورد نظر شما یافت نشد
+            </p>
+
+        </div>
+
+        <section class="section-info-product hidden-for-situation">
+            <div class="contail-info-product">
+                <div class="contain-page-shop flex-center">
+                    <!-- <ul class="menu-page-shop flex-center">
+                        <li class="list-page-shop flex-center">
+                            <a href="#" class="link-page-shop">فروشگاه اینترنتی دایان شاپ</a> <i class="icon-page-shop fa">&#xf107;</i>
+                        </li>
+                        <li class="list-page-shop flex-center">
+                            <a href="#" class="link-page-shop">مردانه</a> <i class="icon-page-shop fa">&#xf107;</i>
+                        </li>
+                        <li class="list-page-shop flex-center">
+                            <a href="#" class="link-page-shop">کفش مردانه</a> <i class="icon-page-shop fa">&#xf107;</i>
+                        </li>
+                        <li class="list-page-shop flex-center">
+                            <a href="#" class="link-page-shop">کفش اسپرت مردانه</a>
+                        </li>
+                    </ul> -->
+
+                </div>
+                <div class="contain-text-info ">
+                    <div class="contain-introduce-product flex-center">
+                        <div class="call-vender-info flex-center-column">
+                            <div class="star-product-info">
+                                <i class="icon-star-product fa fa-star"></i><i class="icon-star-product fa fa-star"></i><i class="icon-star-product fa fa-star"></i><i class="icon-star-product fa fa-star"></i><i class="icon-star-product fa fa-star"></i>
+                            </div>
+                            <button class="btn-call-product">
+                                <i class="icon-call-product fas fa-phone"></i>
+                                درخواست مشاوره تلفنی
+                                
+                            </button>
+                        </div>
+                        <div class="contain-model-product flex-center-column">
+                            <h1 class="title-model-product"></h1>
+                            <p class="text-model-product">
+                                <span class="name-model-product">دسته بندی: </span>
+                                <span class="kind-model-product">
+                                    کفش روزمره مردانه</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contain-vender-product flex-center">
+                        <p class="text-vender-product">
+                            <i class="icon-shop-product fas fa-store"></i>
+                            <span class="title-vender-product">فروشنده:</span><span class="name-vender-product">Nika Shoes
+                            </span>
+                        </p>
+                        <p class=" flex-center">
+                            <span class="title-brand-product">برند:</span>
+                            <span class="name-brand-product">Caterpillar
+    
+                            </span>
+                            <span class="kind-nature-product">غیر اصل</span>
+                        </p>
+                        <p class="share-info-product">
+                            <i class="icon-share-product fas fa-share-alt"></i>
+                            <span class="text-share-product">اشتراک گذاری</span>
+                        </p>
+                    </div>
+                    <div class="contain-more-info flex-center">
+                        <div class="contain-particulars-product flex-center-column">
+                            <div class="particular-product-info"><i class="icon-particular-product fa">	&#xf058;</i><span class="text-particular-product">ویژگی 1</span></div>
+                            <div class="particular-product-info"><i class="icon-particular-product fa">	&#xf058;</i><span class="text-particular-product">ویژگی 2</span></div>
+
+                            <div class="particular-product-info"><i class="icon-particular-product fa">	&#xf058;</i><span class="text-particular-product">ویژگی 3</span></div>
+
+                            <div class="particular-product-info"><i class="icon-particular-product fa">	&#xf058;</i><span class="text-particular-product" id="contain-color"></span></div>
+                        </div>
+                        <div class="contain-services-product flex-center-column">
+                            <div class="service-product-info flex-center"><i class="icon-service-product fas">&#xf095;</i><span class="text-service-info">پشتیبانی 24/7</span></div>
+                            <div class="service-product-info flex-center"><i class="icon-service-product fas">&#xf53c;</i><span class="text-service-info">
+                                پرداخت درب منزل</span></div>
+                            <div class="service-product-info flex-center"><i class="icon-service-product fas" id="icon-day-product">&#xf133;</i><span class="text-service-info">
+                                ضمانت 3 روز بازگشت کالا</span></div>
+                            <div class="service-product-info flex-center"><i class="icon-service-product fas">&#xf197;</i><span class="text-service-info">
+                                تحویل سریع و ارزان</span></div>
+                        </div>
+                    </div>
+                    <div class="contain-product-sizes flex-center">
+                        <span class="title-produvt-size">سایز کفش:</span>
+
+                        <!-- <div class="contain-number-size flex-center"><span class="number-size-product">40</span></div>
+                        <div class="contain-number-size flex-center"><span class="number-size-product">41</span></div>
+                        <div class="contain-number-size flex-center"><span class="number-size-product">42</span></div>
+                        <div class="contain-number-size flex-center"> <span class="number-size-product">43</span></div> -->
+                    </div>
+
+                    <div class="contain-financial-product flex-center">
+                        <h3 class="price-product-info"></h3>
+                        <button class="add-to-basket">اضافه به سبد خرید</button>
+                    </div>
+
+                </div>
+                <div class="contain-image-info flex-center">
+                    <div class="contain-images-product">
+                        <!-- <i class="contain-image-right fa">	&#xf107;</i>
+                        <i class="contain-image-left fa">	&#xf107;</i> -->
+                        <img src="../images/small1-shoe11.jpg" alt="1" class="big-image-product"></div>
+                    <div class="contain-slider-product flex-center-column">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-table-product hidden-for-situation">
+            <div class="contain-table-product flex-center-column">
+                <div class="contain-title-table flex-center">
+                    <div class="title-table-product flex-center">
+                        <a href="#" class="title-table-link">خصوصیات</a>
+                    </div>
+                    <div class="title-table-product">
+                        <a href="#" class="title-table-link">توضیحات</a>
+                    </div>
+                    <div class="title-table-product">
+                        <a href="#" class="title-table-link">نظرات کاربران</a>
+                    </div>
+                </div>
+                <div class="text-title-product">
+                    <h1 class="h1-text-title">خصوصیات اصلی</h1>
+                </div>
+                <div class="box-table-product flex-center-column">
+                    <div class="row-table-product flex-center"><span class="title-particular-product flex-center">رنگ</span><span class="content-particular-product" id="particular-color">
+                        قهوه ای</span></div>
+                    <div class="row-table-product flex-center" id="row-size"><span class="title-particular-product flex-center">سایز</span><span class="content-particular-product" id="particular-size">
+                        </span></div>
+                    <div class="row-table-product flex-center"><span class="title-particular-product flex-center">ویژگی 3  </span><span class="content-particular-product">
+                توضیح 3</span></div>
+                    <div class="row-table-product flex-center"><span class="title-particular-product flex-center">ویژگی 4</span><span class="content-particular-product">
+                        توضیح 4
+                        </span></div>
+                </div>
+            </div>
+        </section>
+        <section class="section-other-products hidden-for-situation">
+
+            <div class="contain-other-products flex-center-column">
+                <i class="icon-box-right fa">	&#xf107;</i>
+                <i class="icon-box-left fa">	&#xf107;</i>
+                <div class="title-other-products">
+                    <h1 class="text-other-products">محصولات مشابه</h1>
+                </div>
+                <div class="contain-box-other flex-center">
+
+                    <!-- <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe6.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Cat مدل 31385</p>
+                                <strong class="price-product-shop">269,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe7.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Cat مدل 31384</p>
+                                <strong class="price-product-shop">269,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe8.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Sevin مدل 31383</p>
+                                <strong class="price-product-shop">309,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe9.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Sevin مدل 31382</p>
+                                <strong class="price-product-shop">309,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe10.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Sevin مدل 31380</p>
+                                <strong class="price-product-shop">309,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe10.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Sevin مدل 31380</p>
+                                <strong class="price-product-shop">309,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-box-shop flex-center-column">
+                        <div class="contain-image-same">
+                            <img src="images/shoe10.jpg" alt="img" class="image-product-same">
+                            <div class="contain-info-product">
+                                <p class="name-model-product">کفش روزمره مردانه Sevin مدل 31380</p>
+                                <strong class="price-product-shop">309,000 تومان</strong>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <section class="contain-finally-shop">
+            <footer class="short-info-shop grid-center">
+                <div class="time-answer-shop flex-center">
+                    <span class="text-time-answer">ساعت پاسخگویی پشتیبانی شنبه تا پنج شنبه 9 تا 17</span>
+                </div>
+                <div class="phone-answer-shop flex-center">
+                    <i class="icon-phone-answer fa">&#xf095;</i>
+                    <span class="text-phone-answer">شماره تماس: 05191001370</span>
+                </div>
+                <div class="email-answer-shop flex-center">
+                    <i class="icon-email-answer fa">&#xf0e0;</i>
+                    <span class="text-email-answer">آدرس ایمیل: info@dayanshop.com</span>
+                </div>
+            </footer>
+            <div class="finally-menu-shop grid-center">
+                <div class="contain-finally-menu flex-center-column">
+                    <h2 class="title-finally-menu">خدمات مشتریان</h2>
+                    <ul class="finally-menu-self flex-center-column">
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">پشتیبانی مشتریان</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">راهنمای خرید</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">سوالات متداول</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contain-finally-menu flex-center-column">
+                    <h2 class="title-finally-menu">قوانین</h2>
+                    <ul class="finally-menu-self flex-center-column">
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">حریم خصوصی</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">قوانین بازگشت کالا</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">شرایط استفاده</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contain-finally-menu flex-center-column">
+                    <h2 class="title-finally-menu">با فروشگاه اینترنتی دایان شاپ</h2>
+                    <ul class="finally-menu-self flex-center-column">
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">درباره ما</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">تماس با ما</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">فرصت های شغلی</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</body>
+
+</html>

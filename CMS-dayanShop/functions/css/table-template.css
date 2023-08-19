@@ -1,0 +1,244 @@
+main {
+  width: 100%;
+}
+.main-page {
+  max-width: 98%;
+  background: #fff;
+  padding: 1.2rem 1rem;
+  gap: 1rem;
+}
+.main-page > * {
+  width: 100%;
+}
+.title-main {
+  width: 100%;
+  border-bottom: 2px solid #e6e9ed;
+  padding-bottom: 10px;
+  color: #73879c;
+  font-size: 16px;
+}
+
+form {
+  width: 100%;
+  justify-content: space-around !important;
+  gap: 2rem;
+}
+main form > div {
+  width: 30%;
+  /* flex-grow: 1; */
+  background: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(1.5em + 0.75rem + 2px);
+  /* padding: 0.375rem 0.75rem; */
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  /* border-radius: 0.25rem; */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.control-item-table {
+  width: 100%;
+  padding-top: 1.5rem;
+}
+.new-item-table {
+  cursor: pointer;
+  position: relative;
+  background: #26b99a;
+  border: 1px solid #169f85;
+  color: #fff;
+  padding-right: 0.5rem;
+}
+.new-item-table:hover {
+  background: #169f85;
+}
+.new-item-table a {
+  color: #fff;
+}
+.control-item-table i {
+  height: 23px;
+  width: 23px;
+  font-size: 16px;
+  /* padding-left: 1.7rem; */
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-item-table i {
+  border-right: 1px solid #ccc;
+}
+.search-item-table i {
+  color: #ccc;
+  border-right: 1px solid #ccc;
+}
+#searchitem-menu {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding-right: 0.5rem;
+}
+.filter-item-table {
+  position: relative;
+  border-color: #0071a1;
+  vertical-align: top;
+}
+.filter-item-table button {
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  color: #0071a1;
+  background: #f3f5f6;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+.filter-item-table button:hover {
+  background: #f1f1f1;
+  border-color: #016087;
+  color: #016087;
+}
+.filter-item-table i {
+  position: absolute;
+  left: 2px;
+  color: #ccc;
+  border-right: 1px solid #ccc;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.contain-table {
+  margin: 2rem;
+}
+td,
+th {
+  border: 1px solid #dee2e6;
+}
+th {
+  border-bottom: 2px solid #dee2e6;
+  vertical-align: bottom;
+  padding: 0.75rem;
+  text-align: center;
+  color: #212529;
+  font-weight: 700;
+}
+td {
+  text-align: center;
+  width: 100px;
+  padding: 0.3rem;
+}
+
+.code-item-table,
+.state-item-table {
+  /* min-width: 60px; */
+  width: 100px;
+}
+.btn-item-table {
+  margin: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-item-table a {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 0;
+  transition: 0.3s;
+}
+.edit-item-table {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  transition: 0.3s;
+}
+.edit-item-table:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+.btn-item-table a {
+  color: #fff;
+  padding: 0.4rem 1rem;
+
+  gap: 5px;
+}
+
+.remove-item-table {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.remove-item-table:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+.change-page {
+  width: max-content;
+  align-self: flex-start;
+}
+.change-page a {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dee2e6;
+  color: #007bff;
+}
+.change-page .next-previous {
+  font-weight: 500;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.change-page .previous-page {
+  color: #6c757d;
+}
+.activ-page {
+  background: #007bff;
+  color: #fff !important;
+}
+.change-page a:hover:not(.activ-page) {
+  z-index: 2;
+  color: #0056b3;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+@media only screen and (max-width: 770px) {
+  form {
+    flex-wrap: wrap;
+  }
+  form > div {
+    flex-grow: 1;
+    font-size: 13px;
+  }
+  .search-page {
+    max-width: 45%;
+  }
+  h3 {
+    font-size: 18px !important;
+  }
+  .item-table-kind {
+    width: 60px;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  td select {
+    width: 70px;
+    font-size: 12px;
+  }
+  td {
+    width: 25%;
+  }
+  .btn-item-table a {
+    padding: 0.2rem 0.5rem;
+  }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="../../functions/js/loadash.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    <script src="app.js" async type="module"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-body flex-column">
+      <header-section
+        style="width: 100%"
+        title="افزودن و ویرایش محصولات"
+        css-link="products/create-product"
+      ></header-section>
+
+      <main class="main-page flex-column">
+        <header class="header-main flex-column">
+          <div class="title-main">
+            <h2>افزودن محصولات</h2>
+          </div>
+        </header>
+        <section class="side-container flex-row">
+          <section class="right flex-column">
+            <article class="describe flex-column">
+              <div class="title-product">
+                <input
+                  type="text"
+                  name=""
+                  id="titleInput"
+                  placeholder="عنوان"
+                  class="input-handler"
+                />
+              </div>
+              <div class="category-product flex-column">
+                <label for="category">دسته بندی</label>
+                <select
+                  name="category"
+                  id="category"
+                  class="input-handler"
+                  onchange="setKindOfProduct()"
+                >
+                  <optgroup label="کفش">
+                    <option value="زنانه">زنانه</option>
+                    <option value="مردانه">مردانه</option>
+                    <option value="اسپورت">اسپورت</option>
+                  </optgroup>
+                  <optgroup label="لباس">
+                    <option value="زنانه">زنانه</option>
+                    <option value="مردانه">مردانه</option>
+                    <option value="مجلسی">مجلسی</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="category-product flex-column">
+                <label for="kind">نوع دقیق محصول</label>
+                <select name="kind" id="kind" class="input-handler">
+                  <optgroup label="کفش">
+                    <option value="زنانه">زنانه</option>
+                    <option value="مردانه">مردانه</option>
+                    <option value="اسپورت">اسپورت</option>
+                  </optgroup>
+                  <optgroup label="لباس">
+                    <option value="زنانه">زنانه</option>
+                    <option value="مردانه">مردانه</option>
+                    <option value="مجلسی">مجلسی</option>
+                  </optgroup>
+                </select>
+              </div>
+            </article>
+            <aricle class="information-product flex-column template-product">
+              <header class="title-info">
+                <h3>اطلاعات محصول</h3>
+              </header>
+              <section class="body-info flex-row">
+                <div class="menu-info">
+                  <ul>
+                    <a href="#" class="active">قیمت</a>
+                    <a href="#">ویژگی ها</a>
+                    <a href="#">متغیر محصول</a>
+                    <!-- <li><a href=""></a></li> -->
+                  </ul>
+                </div>
+                <div class="text-info flex-column">
+                  <div class="contain-input-info flex-row">
+                    <label for="">قیمت اصلی (تومان)</label>
+                    <input
+                      type="number"
+                      name=""
+                      id="priceInput"
+                      class="input-handler"
+                      oninput="changePrice(event)"
+                      step="10000"
+                      min="10000"
+                      max="999999"
+                      value="10000"
+                    />
+                  </div>
+                  <div class="contain-input-info flex-row">
+                    <label for="">قیمت فروش فوق‌العاده (تومان)</label>
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      class="input-handler"
+                      style="background-color: #5b5b5b21"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </section>
+            </aricle>
+            <article class="gallery-product flex-column template-product">
+              <header class="title-gallery">
+                <h3>گالری تصاویر</h3>
+              </header>
+              <section class="body-gallery flex-column">
+                <div class="point-gallery">
+                  <h6>
+                    تعداد عکس‌های انتخاب شده نباید بیشتر از 6 باشد. سایز عکس ها
+                    در 500*750.
+                  </h6>
+                </div>
+                <div class="pictures-gallery flex-row">
+                  <div class="picture-detail flex-column">
+                    <div class="contain-img">
+                      <img src="../img/gallery-default.png" alt="" />
+                    </div>
+                    <div class="contain-input flex-column">
+                      <!-- <span>انتخاب کنید</span> -->
+                      <input type="file" name="" id="" />
+                    </div>
+                  </div>
+                  <div class="picture-detail flex-column">
+                    <div class="contain-img">
+                      <img src="../img/gallery-default.png" alt="" />
+                    </div>
+                    <div class="contain-input flex-column">
+                      <!-- <span>انتخاب کنید</span> -->
+                      <input type="file" name="" id="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="new-picture flex-row">
+                  <i class="fa fa-plus"></i>
+                  <p>افزودن تصویر جدید</p>
+                </div>
+              </section>
+            </article>
+          </section>
+          <section class="left flex-column">
+            <article class="release-save flex-column">
+              <header class="title">
+                <h3>انتشار</h3>
+              </header>
+              <section class="contain-btn flex-row">
+                <button class="btn-save">ذخیره پیش نویس</button
+                ><button class="btn-release">انتشار</button>
+              </section>
+            </article>
+
+            <article class="main-picture flex-column">
+              <header class="title">
+                <h3>تصویر شاخص</h3>
+              </header>
+              <section class="body-picture flex-column">
+                <div class="point-picture flex-row">
+                  <p>اندازه تصویر شاخص :</p>
+                  <span>400*250</span>
+                </div>
+                <section class="select-picture flex-column">
+                  <div class="contain-img">
+                    <img
+                      src="../img/gallery-default.png"
+                      alt=""
+                      id="mainImage"
+                    />
+                  </div>
+
+                  <div class="contain-input flex-column">
+                    <input type="file" name="" id="imgInput" />
+                  </div>
+                </section>
+              </section>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

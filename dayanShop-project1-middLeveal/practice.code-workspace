@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "..\\..\\..\\css-grid-code"
+    },
+    {
+      "path": "../.."
+    },
+    {
+      "path": "../../../canavas"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "java-script",
+    "liveServer.settings.port": 5501
+  }
+}

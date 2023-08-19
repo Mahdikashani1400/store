@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="products-list.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="products-list.js" async type="module"></script>
+</head>
+
+<body class="flex-center-column">
+
+    <section class="contain-pre-loader flex-center display-none">
+        <div class="preloader-change-page flex-center display-none">
+            <img src="../pre-loader/shop.gif" alt="">
+        </div>
+        <div class="fake-background-load display-none"></div>
+
+    </section>
+
+    <div id="all">
+        <header class="info-search-hearde">
+            <div class="contain-accessibility-header">
+                <div class="user-react-header flex-center">
+
+                    <div class="enter-user-header flex-center"><span class="enter-text-header">ورود / عضویت</span></div>
+                    <div class="basket-user-header flex-center">
+                        <div class="contain-user-icon flex-center"><i class="icon-user-header fas fa-user"></i></div>
+                        <span class="basket-text-header">سبد خرید شما</span><i class="icon-basket-header fa">	&#xf07a;</i>
+                    </div>
+                </div>
+                <div class="search-box-header flex-center">
+                    <input type="text" name="" id="search-input-header" placeholder="محصول مورد نظر خود را جستجو کنید ...">
+                    <div class="contain-icon-search">
+                        <a class="icon-search-header"></a>
+                    </div>
+                </div>
+                <div class="logo-shop-header flex-center"><img src="../images/logo.png" alt="logo of web" class="image-logo-header"></div>
+                <div class="menu-bar-header"><i class="icon-menu-bar fa fa-bars"></i></div>
+            </div>
+            <nav class="contain-menu-header flex-center">
+                <i class="back-icon-header fa">	&#xf060;</i>
+                <div class="contain-close-menu flex-center"><span class="close-menu-header">x</span></div>
+                <ul class="menu-lists-header flex-center"></ul>
+            </nav>
+
+        </header>
+
+
+        <div class="contain-page-shop flex-center ">
+            <ul class="menu-page-shop flex-center">
+                <!-- <li class="list-page-shop flex-center">
+                    <a href="#" class="link-page-shop">فروشگاه اینترنتی دایان شاپ</a> <i class="icon-page-shop fa">&#xf107;</i>
+                </li>
+                <li class="list-page-shop flex-center">
+                    <a href="#" class="link-page-shop">مردانه</a> <i class="icon-page-shop fa">&#xf107;</i>
+                </li>
+                <li class="list-page-shop flex-center">
+                    <a href="#" class="link-page-shop">کفش مردانه</a> <i class="icon-page-shop fa">&#xf107;</i>
+                </li>
+                <li class="list-page-shop flex-center">
+                    <a href="#" class="link-page-shop">کفش اسپرت مردانه</a>
+                </li> -->
+            </ul>
+            <div class="contain-back-topage flex-center display-none">
+                <i class="icon-back-topage fa">&#xf060;</i>
+                <span class="text-back-topage">بازگشت به صفحه قبلی</span>
+            </div>
+
+
+
+
+        </div>
+
+        <section class="support-products-shop hidden-for-situation">
+            <div class="contain-all-products">
+
+                <div class="products-shop-optional flex-center-column">
+                    <div class="filter-products-price flex-center-column contain-filter">
+                        <div class="contain-title-price flex-center">
+                            <h4 class="title-filter-price">قیمت</h4>
+                            <div class="icon-filter-product"></div>
+                        </div>
+                        <div class="contain-control-price flex-center-column ">
+                            <div class="contain-range-price flex-center">
+                                <span id="range-filter-price1"></span>
+                                <span id="range-filter-price2"></span>
+                            </div>
+                            <div class="contain-submit-price flex-center">
+                                <button class="submit-filter-price">اعمال شود</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="filter-products-color flex-center-column contain-filter">
+                        <div class="contain-title-color flex-center">
+                            <h4 class="title-filter-color">رنگ</h4>
+                            <div class="icon-filter-product"></div>
+                        </div>
+                        <div class="contain-filter-colors flex-center-column ">
+                            <!-- <div class="box-filter-fake" style="width:100% ;min-height:26px;"></div> -->
+                        </div>
+
+
+                    </div>
+
+                    <div class="filter-products-size flex-center-column contain-filter">
+                        <div class="contain-title-size flex-center">
+                            <h4 class="title-filter-size">سایز</h4>
+                            <div class="icon-filter-product"></div>
+                        </div>
+
+                        <div class="contain-range-size flex-center-column ">
+                            <!-- <div class="box-filter-size flex-center">
+                                <label class="text-filter-siza" for="filter-size-40">40</label>
+                                <input type="checkbox" name="" id="filter-size-40">
+
+                            </div>
+
+                            <div class="box-filter-size flex-center">
+                                <label class="text-filter-siza" for="filter-size-41">41</label>
+                                <input type="checkbox" name="" id="filter-size-41">
+
+                            </div>
+                            <div class="box-filter-size flex-center">
+                                <label class="text-filter-siza" for="filter-size-42">42</label>
+                                <input type="checkbox" name="" id="filter-size-42">
+
+                            </div>
+
+                            <div class="box-filter-size flex-center">
+                                <label class="text-filter-siza" for="filter-size-43">43</label>
+                                <input type="checkbox" name="" id="filter-size-43">
+
+                            </div> -->
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-apearance-shop">
+                    <div class="contain-title-products flex-center">
+                        <h1 class="title-products-shop">لوازم ورزشی</h1>
+                    </div>
+                    <div class="contain-box-products "></div>
+                </div>
+            </div>
+
+        </section>
+        <section class="support-number-page hidden-for-situation">
+            <div class="contain-number-page flex-center">
+                <h6 class="title-number-page">صفحه بندی :</h6>
+                <div class="box-number-page flex-center">
+                </div>
+            </div>
+        </section>
+        <div class="alert-product-situation flex-center">
+            <p class="alert-error-product">
+                محصول مورد نظر شما یافت نشد
+            </p>
+
+        </div>
+
+        <section class="contain-finally-shop">
+            <footer class="short-info-shop grid-center">
+                <div class="time-answer-shop flex-center">
+                    <span class="text-time-answer">ساعت پاسخگویی پشتیبانی شنبه تا پنج شنبه 9 تا 17</span>
+                </div>
+                <div class="phone-answer-shop flex-center">
+                    <i class="icon-phone-answer fa">&#xf095;</i>
+                    <span class="text-phone-answer">شماره تماس: 05191001370</span>
+                </div>
+                <div class="email-answer-shop flex-center">
+                    <i class="icon-email-answer fa">&#xf0e0;</i>
+                    <span class="text-email-answer">آدرس ایمیل: info@dayanshop.com</span>
+                </div>
+            </footer>
+            <div class="finally-menu-shop grid-center">
+                <div class="contain-finally-menu flex-center-column">
+                    <h2 class="title-finally-menu">خدمات مشتریان</h2>
+                    <ul class="finally-menu-self flex-center-column">
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">پشتیبانی مشتریان</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">راهنمای خرید</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">سوالات متداول</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contain-finally-menu flex-center-column">
+                    <h2 class="title-finally-menu">قوانین</h2>
+                    <ul class="finally-menu-self flex-center-column">
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">حریم خصوصی</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">قوانین بازگشت کالا</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">شرایط استفاده</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contain-finally-menu flex-center-column">
+                    <h2 class="title-finally-menu">با فروشگاه اینترنتی دایان شاپ</h2>
+                    <ul class="finally-menu-self flex-center-column">
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">درباره ما</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">تماس با ما</a>
+                        </li>
+                        <li class="finally-menu-list">
+                            <a href="" class="finally-menu-link">فرصت های شغلی</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+</body>
+
+</html>

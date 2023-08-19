@@ -1,0 +1,41 @@
+
+/* modal */
+div:where(.swal2-container) .swal2-html-container {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .contain-input-swal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .contain-input-swal input {
+    height: 2em !important;
+    margin-top: 0;
+  }
+  .swal2-title {
+    font-size: 1.5em;
+    padding-bottom: 1rem;
+  }
+  .swal2-confirm {
+    width: 120px;
+    padding: 0.625em 0;
+    background-color: #2d8a26e6 !important;
+  }
+  .swal2-cancel {
+    width: 120px;
+    padding: 0.625em 0;
+    background-color: #d54c31 !important;
+  }
+  div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+    box-shadow: none !important;
+  }
+  .swal2-validation-message {
+    background-color: #ffc7c78a;
+  }
+  .swal2-toast #swal2-title {
+    color: #d1400e;
+    font-size: 0.8em;
+  }
+  

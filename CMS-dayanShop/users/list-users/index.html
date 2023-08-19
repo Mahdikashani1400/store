@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    <script src="app.js" async type="module"></script>
+
+    <title>Document</title>
+  </head>
+
+  <body class="flex-column">
+    <div class="container-body flex-column">
+      <header-section
+        style="width: 100%"
+        title="کاربران بعضی از کاربران برای شروع کار شما"
+        css-link="users/list-users"
+      ></header-section>
+
+      <main class="main-page flex-column">
+        <header class="header-main flex-column">
+          <div class="title-main">
+            <h2>لیست کاربران</h2>
+          </div>
+          <div class="control-item-table users flex-row">
+            <form action="" class="flex-row">
+              <div class="new-item-table users">
+                <a href="#">ایجاد کاربر</a><i class="fa fa-plus"></i>
+              </div>
+
+              <div class="search-item-table users">
+                <input
+                  type="search"
+                  name=""
+                  id="searchusers"
+                  placeholder="جستجو بر حسب نام"
+                />
+                <i class="fa fa-tags"></i>
+              </div>
+              <div class="filter-item-table users">
+                <button>فیلتر</button><i class="fa fa-search"></i>
+              </div>
+            </form>
+          </div>
+        </header>
+        <section class="contain-table">
+          <table class="table-item-table users">
+            <thead>
+              <tr>
+                <th class="state-item-table users">نام کاربری</th>
+                <th class="code-item-table users">ایمیل</th>
+                <th>رمز عبور</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>aliMohammadi</td>
+                <td>aliMohammadi@gmail.com</td>
+                <td>ali123456</td>
+                <td>1</td>
+                <td class="td-btn">
+                  <div class="btn-item-table users flex-row">
+                    <button class="edit-item-table users">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a></button
+                    ><button class="remove-item-table users flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>aliMohammadi</td>
+                <td>aliMohammadi@gmail.com</td>
+                <td>ali123456</td>
+                <td>1</td>
+                <td class="td-btn">
+                  <div class="btn-item-table users flex-row">
+                    <button class="edit-item-table users">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+                    <button class="remove-item-table users flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>aliMohammadi</td>
+                <td>aliMohammadi@gmail.com</td>
+                <td>ali123456</td>
+                <td>1</td>
+                <td class="td-btn">
+                  <div class="btn-item-table users flex-row">
+                    <button class="edit-item-table users">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+                    <button class="remove-item-table users flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <article class="change-page flex-row">
+          <a class="previous-page next-previous">قبلی</a>
+          <a class="page-number activ-page">1</a><a class="page-number">2</a
+          ><a class="next-page next-previous">بعدی</a>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

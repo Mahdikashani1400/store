@@ -1,0 +1,36 @@
+@import url("../../functions/css/reset.css");
+@import url("../../functions/css/font.css");
+@import url("../../functions/css/flex.css");
+@import url("../../functions/css/table-template.css");
+@media only screen and (max-width: 770px) {
+  form {
+    flex-wrap: wrap;
+  }
+  form > div {
+    flex-grow: 1;
+    font-size: 13px;
+  }
+  .search-page {
+    max-width: 45%;
+  }
+  h3 {
+    font-size: 18px !important;
+  }
+  .item-menu-kind {
+    width: 60px;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  td select {
+    width: 70px;
+    font-size: 12px;
+  }
+  td {
+    width: 25%;
+  }
+  .btn-item-menu a {
+    padding: 0.2rem 0.5rem;
+  }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../functions/css/reset.css" />
+    <link rel="stylesheet" href="../../functions/css/font.css" />
+    <link rel="stylesheet" href="../../functions/css/flex.css" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="../../functions/js/loadash.js" async></script>
+    <script src="app.js" async type="module"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-body flex-column">
+      <header-section
+        style="width: 100%"
+        title="بعضی از محصولات برای شروع کار شما"
+        css-link="products/product-list"
+      ></header-section>
+
+      <main class="main-page flex-column">
+        <header class="header-main flex-column">
+          <div class="title-main">
+            <h2>لیست محصولات</h2>
+          </div>
+          <div class="control-item-table flex-row">
+            <form action="" class="flex-row">
+              <div class="search-item-table">
+                <input
+                  type="search"
+                  name=""
+                  id="searchTitle"
+                  placeholder="جستجو بر حسب عنوان"
+                />
+                <i class="fa fa-tags"></i>
+              </div>
+              <div class="new-item-table">
+                <select name="" id="category">
+                  <option value="همه">همه</option>
+
+                  <optgroup label="کفش">
+                    <option value="زنانه">زنانه</option>
+                    <option value="مردانه">مردانه</option>
+                    <option value="اسپورت">اسپورت</option>
+                  </optgroup>
+                  <optgroup label="لباس">
+                    <option value="زنانه">زنانه</option>
+                    <option value="مردانه">مردانه</option>
+                    <option value="مجلسی">مجلسی</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="filter-item-table">
+                <button>فیلتر</button><i class="fa fa-search"></i>
+              </div>
+            </form>
+          </div>
+        </header>
+        <section class="contain-table">
+          <table class="table-item-table">
+            <thead>
+              <tr>
+                <th class="state-item-table discount">وضعیت انتشار</th>
+
+                <th class="state-item-table">کد</th>
+                <th class="code-item-table">تصویر</th>
+                <th>عنوان</th>
+                <th>دسته</th>
+                <th>قیمت</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>32143</td>
+                <td>
+                  <img src="../../takhfifat/img/admin-photo.jpg" alt="" />
+                </td>
+                <td>تی شرت رنگی</td>
+                <td>لباس</td>
+                <td>10</td>
+                <td>100,000</td>
+                <td>
+                  <div class="btn-item-table flex-row">
+                    <button class="see-item-table">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-eye"></i> مشاهده
+                      </a>
+                    </button>
+                    <button class="edit-item-table">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+
+                    <button class="remove-item-table flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>32143</td>
+                <td>
+                  <img src="../../takhfifat/img/admin-photo.jpg" alt="" />
+                </td>
+                <td>تی شرت رنگی</td>
+                <td>لباس</td>
+                <td>10</td>
+                <td>100,000</td>
+                <td>
+                  <div class="btn-item-table flex-row">
+                    <button class="see-item-table">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-eye"></i> مشاهده
+                      </a>
+                    </button>
+                    <button class="edit-item-table">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+
+                    <button class="remove-item-table flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>32143</td>
+                <td>
+                  <img src="../../takhfifat/img/admin-photo.jpg" alt="" />
+                </td>
+                <td>تی شرت رنگی</td>
+                <td>لباس</td>
+                <td>10</td>
+                <td>100,000</td>
+                <td>
+                  <div class="btn-item-table flex-row">
+                    <button class="see-item-table">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-eye"></i> مشاهده
+                      </a>
+                    </button>
+                    <button class="edit-item-table">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-pencil"></i> ویرایش
+                      </a>
+                    </button>
+
+                    <button class="remove-item-table flex-row">
+                      <a href="" class="flex-row">
+                        <i class="fa fa-trash-o"></i> حذف</a
+                      >
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <article class="change-page flex-row">
+          <a class="previous-page next-previous">قبلی</a>
+          <a class="page-number activ-page">1</a><a class="page-number">2</a
+          ><a class="next-page next-previous">بعدی</a>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
