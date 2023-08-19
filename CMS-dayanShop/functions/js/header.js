@@ -5,11 +5,11 @@ let menuState = "mini-menu";
 let adminName = null;
 
 const registerAdmin = () => {
-  let adminInfo = document.cookie;
-  if (
-    adminInfo.split("=")[0] === "user" &&
-    JSON.parse(adminInfo.split("=")[1])
-  ) {
+  let adminInfo = document.cookie.split(";").filter((item) => {
+    console.log(item.split("=")[0]);
+    return item.split("=")[0].trim() === "admin";
+  })[0];
+  if (JSON.parse(adminInfo.split("=")[1])) {
     adminName = JSON.parse(adminInfo.split("=")[1])["name"];
     console.log(adminName);
   }

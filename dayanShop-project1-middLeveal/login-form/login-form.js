@@ -27,8 +27,7 @@ menu("login-form");
 search("login-form");
 
 window.addEventListener("load", () => {
-  $.cookie = `user=${JSON.stringify(null)};path=/`;
-  userLoginHandler();
+  // userLoginHandler();
   goToUserBasket();
 });
 
@@ -55,15 +54,14 @@ function backToPreviousPage() {
 
 let productSituation = $.querySelector(".alert-product-situation");
 
-let usersInfo = JSON.parse(localStorage.getItem("users")) || [
-  {
-    id: 0,
-    username: "adminadmin",
-    name: "محمد جووون",
-    email: "admin.admin@gmail.com",
-    password: "Admin123456",
-  },
-];
+let usersInfo = JSON.parse(localStorage.getItem("users")) || [];
+let adminInfo = {
+  id: 0,
+  username: "adminadmin",
+  name: "محمد جووون",
+  email: "admin.admin@gmail.com",
+  password: "Admin123456",
+};
 let userId = null;
 let allOfThing = $.getElementById("all");
 let username = $.getElementById("username");
@@ -131,11 +129,11 @@ async function showModal(modal, kind = "", state = "") {
       modal.innerHTML = "ثبت نام شما با موفقیت انجام شد .";
     } else {
       modal.innerHTML = "شما با  موفقیت وارد پنل کاربری خود شدید :)";
-      $.cookie = `user=${JSON.stringify(findInfo)};path=/`;
       if (findInfo["id"]) {
+        $.cookie = `user=${JSON.stringify(findInfo)};path=/`;
         window.location.href = "../main-page/main-page.html";
       } else {
-        // $.cookie = `admin=${JSON.stringify(findInfo)};path=/`;
+        $.cookie = `admin=${JSON.stringify(findInfo)};path=/`;
 
         window.location.href =
           "../../CMS-dayanShop/takhfifat/discount-list/index.html";
@@ -296,6 +294,7 @@ let findInfo = null;
 let hasUser;
 let hasEmail;
 const checkUser = (state) => {
+  usersInfo.push(adminInfo);
   hasUser = usersInfo.some((user) => {
     findInfo = user;
     console.log(user);
