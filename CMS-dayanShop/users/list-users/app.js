@@ -3,7 +3,14 @@ import { newItemInputs, Toast } from "../../functions/js/modals.js";
 window.customElements.define("header-section", Header);
 const $ = document;
 
-let usersInfo = JSON.parse(localStorage.getItem("users")) || [];
+let usersInfo = JSON.parse(localStorage.getItem("users")) || [
+  {
+    id: 0,
+    username: "adminadmin",
+    email: "admin.admin@gmail.com",
+    password: "Admin123456",
+  },
+];
 let userId = null;
 
 let tbody = $.querySelector("tbody");

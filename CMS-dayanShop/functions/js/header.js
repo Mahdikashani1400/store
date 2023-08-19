@@ -2,7 +2,19 @@ const myHeader = document.createElement("template");
 let activeSelect = null;
 let adminMenuFlag = false;
 let menuState = "mini-menu";
+let adminName = null;
 
+const registerAdmin = () => {
+  let adminInfo = document.cookie;
+  if (
+    adminInfo.split("=")[0] === "user" &&
+    JSON.parse(adminInfo.split("=")[1])
+  ) {
+    adminName = JSON.parse(adminInfo.split("=")[1])["name"];
+    console.log(adminName);
+  }
+};
+registerAdmin();
 myHeader.innerHTML = `
 
 <link rel="stylesheet" href="../../functions/css/header.css"> 
@@ -28,7 +40,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
           </div>
           <div class="welcome-text">
             <span>خوش آمدید.</span>
-            <h2>رضا پور موسوی</h2>
+            <h2>${adminName}</h2>
           </div>
         </div>
       </li>
@@ -71,12 +83,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
     <div class="container-img">
       <img src="../../takhfifat/img/admin-photo.jpg" alt="" />
     </div>
-    <span>رضا پور موسوی</span>
+    <span>${adminName}</span>
     <ul class="flex-column" id="adminItems">
       <li><a href="#">پروفایل</a></li>
       <li><a href="#">تنظیمات</a></li>
       <li><a href="#">راهنما</a></li>
-      <li><a href="#">خروج</a></li>
+      <li><a href="../../../dayanShop-project1-middLeveal/login-form/login-form.html">خروج</a></li>
     </ul>
   </div>
 </nav>
@@ -129,7 +141,6 @@ class Header extends HTMLElement {
           menuState = "mini-menu";
         }
       } else {
-        
         if (menuState === "close") {
           this.removeAddClass(menu, "close-menu", "open-mini-menu");
           menuState = "mini-menu";
@@ -167,18 +178,13 @@ class Header extends HTMLElement {
     if (window.innerWidth >= 750) {
       if (menuState === "mini-menu") {
         this.removeAddClass(menu, "open-mini-menu", "open-menu");
-        
 
         menuState = "menu";
-        
       } else {
-        
-
         this.removeAddClass(menu, "open-menu", "open-mini-menu");
         menuState = "mini-menu";
       }
     } else {
-      
       if (menuState === "mini-menu") {
         this.removeAddClass(menu, "open-mini-menu", "close-menu");
         menuState = "close";

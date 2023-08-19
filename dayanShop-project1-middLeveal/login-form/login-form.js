@@ -27,6 +27,7 @@ menu("login-form");
 search("login-form");
 
 window.addEventListener("load", () => {
+  $.cookie = `user=${JSON.stringify(null)};path=/`;
   userLoginHandler();
   goToUserBasket();
 });
@@ -54,9 +55,16 @@ function backToPreviousPage() {
 
 let productSituation = $.querySelector(".alert-product-situation");
 
-let usersInfo = JSON.parse(localStorage.getItem("users")) || [];
+let usersInfo = JSON.parse(localStorage.getItem("users")) || [
+  {
+    id: 0,
+    username: "adminadmin",
+    name: "محمد جووون",
+    email: "admin.admin@gmail.com",
+    password: "Admin123456",
+  },
+];
 let userId = null;
-
 let allOfThing = $.getElementById("all");
 let username = $.getElementById("username");
 let password = $.getElementById("password");
@@ -124,7 +132,14 @@ async function showModal(modal, kind = "", state = "") {
     } else {
       modal.innerHTML = "شما با  موفقیت وارد پنل کاربری خود شدید :)";
       $.cookie = `user=${JSON.stringify(findInfo)};path=/`;
-      window.location.href = "../main-page/main-page.html";
+      if (findInfo["id"]) {
+        window.location.href = "../main-page/main-page.html";
+      } else {
+        // $.cookie = `admin=${JSON.stringify(findInfo)};path=/`;
+
+        window.location.href =
+          "../../CMS-dayanShop/takhfifat/discount-list/index.html";
+      }
     }
   } else if (kind === "error") {
     modal.style.cssText = `background-color: #e98b8b;
@@ -164,7 +179,7 @@ let repPassword = null;
 let repPassError = null;
 let email = null;
 let emailError = null;
-let userData = $.cookie;
+
 const repPasswordHandler = () => {
   repPassword.addEventListener("input", () => {
     repPassword.style.borderColor = "rgba(207, 43, 43, 0.59)";
@@ -222,7 +237,6 @@ const setUserHandler = () => {
     password: password.value,
   });
   localStorage.setItem("users", JSON.stringify(usersInfo));
-
 
   showModal(loginError, "accept", state);
   clearInput();
@@ -284,6 +298,7 @@ let hasEmail;
 const checkUser = (state) => {
   hasUser = usersInfo.some((user) => {
     findInfo = user;
+    console.log(user);
     return user.username === username.value.trim();
   });
   try {

@@ -854,8 +854,8 @@ const headerSizeHandler = (userInfo, showTextElem) => {
 const userLoginHandler = () => {
   let userInfo = $.cookie;
   let showTextElem = $.querySelector(".enter-text-header");
+  console.log(userInfo);
   if (userInfo.split("=")[0] === "user" && JSON.parse(userInfo.split("=")[1])) {
-
     showTextElem.classList.add("show-user-info");
     showTextElem.classList.remove("enter-text-header");
     headerSizeHandler(userInfo, showTextElem);
