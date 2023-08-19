@@ -11,6 +11,9 @@ import {
   virgolPriceOff,
   virgolPriceOn,
   showProductInfo,
+  userLoginHandler,
+  goToUserBasket,
+  newProductsHandler,
 } from "../functions/functions.js";
 window.showProductInfo = showProductInfo;
 window.mainOfProduct = mainOfProduct;
@@ -36,7 +39,11 @@ window.addEventListener("load", () => {
       kindOfProduct
     );
   }, 1500);
+  userLoginHandler();
+  goToUserBasket();
 });
+
+newProductsHandler();
 
 let allOfThing = $.getElementById("all");
 
@@ -49,7 +56,6 @@ leftThumb.setAttribute("data-minPrice", "10,000");
 rightThumb.setAttribute("data-maxPrice", "1,000,000");
 
 function leftMoveThumb(event) {
-  // leftThumb.style.left = `${100}%`
   leftThumb.style.left = `${(
     ((event.x - containPriceRange.getBoundingClientRect().x) /
       containPriceRange.getBoundingClientRect().width) *
@@ -71,7 +77,7 @@ function leftMoveThumb(event) {
     +leftThumb.style.left.slice(0, -1) + 2 >=
     +100 - rightThumb.style.right.slice(0, -1)
   ) {
-    // console.log("hi");
+    
     leftThumb.style.left = `${100 - rightThumb.style.right.slice(0, -1) - 2}%`;
     minPrice = +(+leftThumb.style.left.slice(0, -1) + 2);
 
@@ -167,7 +173,7 @@ function addColors(englishColors, persianColors) {
             <span class="itself-color-filter" id="itself-color-${englishColors[i]}"></span>
         </div>`;
     let bgColor = $.getElementById(`itself-color-${englishColors[i]}`);
-    // console.log(filterColor);
+    
     bgColor.style.setProperty("--color-filter", englishColors[i]);
   }
 }
@@ -175,7 +181,7 @@ addColors(englishColors, persianColors);
 
 function filterColor(event) {
   let targetColor = event.target.id.split("-").slice(-1)[0];
-  // console.log(targetColor);
+  
 
   productsTarget = allProducts[myProduct].filter((product) => {
     return product.color === targetColor;
@@ -207,7 +213,7 @@ closeFilters.forEach((filter) => {
   filter.setAttribute("icon-filter", "-");
   filter.addEventListener("click", (event) => {
     let container = event.target.parentElement.parentElement;
-    // console.log(container);
+    
     if (container.classList.contains("animate-close-filter")) {
       container.classList.remove("animate-close-filter");
       container.classList.add("animate-open-filter");
@@ -231,7 +237,7 @@ function thousand(price) {
   return +price * 1000;
 }
 
-// console.log(productMoving);
+
 let containProducts = $.querySelector(".contain-box-products");
 let containNumPage = $.querySelector(".box-number-page");
 
@@ -310,7 +316,7 @@ function productPagination(
     }
 
     addProduct(productArray, i * countOfProduct, (i + 1) * countOfProduct);
-    // console.log(i * countOfProduct);
+    
   }
 
   showProductInPage(productShowArray, FirestPage);
@@ -320,6 +326,7 @@ function addProduct(productArray, pruductStart, productEnd) {
   productShowArray.push(productArray.slice(pruductStart, productEnd));
 }
 let productId;
+let imgNewData = "../images/new-product.jpg";
 
 function showProductInPage(productInPage, pageNumber) {
   containProducts.innerHTML = "";
@@ -327,10 +334,18 @@ function showProductInPage(productInPage, pageNumber) {
     productId = `${myProduct}-${product.id}`;
 
     containProducts.innerHTML += `   <div  class="product-box-shop flex-center-column" id="${productId}" onclick="showProductInfo('${productId}','products-list')">
-        <div class="contain-image-product"><img src="../images/${productImageName}${product.id}.jpg" alt="" class="image-product-shop"></div>
+        <div class="contain-image-product"><img src="${
+          product?.state
+            ? imgNewData
+            : `../images/${productImageName}${product.id}.jpg`
+        }" alt="" class="image-product-shop"></div>
         <div class="contain-info-product flex-center-column">
-            <p class="name-model-product">${product.title} مدل  ${product.model}</p>
-            <strong class="price-product-shop">${product.price}،000 تومان</strong>
+            <p class="name-model-product">${product.title} مدل  ${
+      product.model
+    }</p>
+            <strong class="price-product-shop">${
+              product.price
+            }،000 تومان</strong>
         </div>
     </div>`;
   });
@@ -353,8 +368,6 @@ let backElement = $.querySelector(".contain-back-topage");
 backElement.addEventListener("click", backToPreviousPage);
 
 function backToPreviousPage() {
-  // window.location.href = location.href.slice(0, location.href.indexOf('?')).replace('products-list', 'main-page')
-
   preLoader();
 
   setTimeout(() => {
@@ -393,7 +406,7 @@ function filterPrice() {
 
   // countOfProduct = 3
   // FirestPage = 1
-  // console.log(productFiltered);
+  
 
   preLoader();
   setTimeout(() => {
@@ -414,7 +427,7 @@ function filterPrice() {
     returnPriceRange();
   }, 1500);
 
-  // console.log(productShowArray);
+  
 }
 
 submitPrice.addEventListener("click", filterPrice);
@@ -435,7 +448,7 @@ addSizes(myProduct);
 
 function addSizes(productTarget) {
   let sizesArray = allProducts[productTarget][0].allSizes;
-  console.log(sizesArray);
+  
   if (!sizesArray) {
     displayNone(containBoxSizes);
   } else {
@@ -492,10 +505,9 @@ function leaderPageShop() {
     <a href="#" class="link-page-shop" id="home" onclick="backToHome(event)">فروشگاه اینترنتی دایان شاپ</a> <i class="icon-page-shop fa" >&#xf107;</i>
 </li>`
   );
-  console.log(menuStracture);
+  
   let findMain = menuStracture.find((list) => {
     if (!list[0]) {
-      // console.log(productMoving.nameOfProduct in list.subsetList);
       let existMain = list.subsetList.some((main) => {
         return productMoving.nameOfProduct === main;
       });
@@ -504,9 +516,8 @@ function leaderPageShop() {
       }
     }
   });
-  console.log(productMoving);
-  console.log(findMain);
-  console.log(titleOfProduct.innerHTML, findMain.subsetListFa.join(","));
+  
+  
   if (findMain.subsetListFa.join(",").includes(titleOfProduct.innerHTML)) {
     containPageShop.insertAdjacentHTML(
       "beforeend",
@@ -518,7 +529,7 @@ function leaderPageShop() {
     let indexTitle = findMain.subsetList.findIndex((list) => {
       return list === productMoving.nameOfProduct;
     });
-    console.log(indexTitle);
+    
     let findTitle = findMain.subsetListFa[indexTitle];
     containPageShop.insertAdjacentHTML(
       "beforeend",
@@ -536,7 +547,7 @@ function leaderPageShop() {
 leaderPageShop();
 
 function backToHome(event) {
-  console.log(event.target);
+  
   event.target.href = location.pathname.replace(
     new RegExp("products-list", "g"),
     "main-page"

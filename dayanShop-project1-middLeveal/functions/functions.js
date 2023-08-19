@@ -542,6 +542,24 @@ const load = () => {
   });
 };
 
+const newProductsHandler = () => {
+  let hasProduct = JSON.parse(localStorage.getItem("products"));
+  if (hasProduct) {
+    Object.entries(hasProduct).forEach((category) => {
+      if (category[0] !== "models") {
+        category[1].forEach((product) => {
+          if (product.state) {
+            product["id"] =
+              +allProducts[category[0]][allProducts[category[0]].length - 1][
+                "id"
+              ] + 1;
+            allProducts[category[0]].push(product);
+          }
+        });
+      }
+    });
+  }
+};
 const menu = (nowPage) => {
   let menuImages = [
     "image-menu-sport.png",
@@ -563,23 +581,23 @@ const menu = (nowPage) => {
       if (list[0]) {
         containList.insertAdjacentHTML(
           "afterbegin",
-          ` 
+          `
             <li class="list-shop-header list-have-subset flex-center" id="${list[0]}">
-                            <a href="" class="link-shop-header ">${list[1]}</a> 
-                            
+                            <a href="" class="link-shop-header ">${list[1]}</a>
+
                             </li>
-            
+
             `
         );
       } else {
         containList.insertAdjacentHTML(
           "afterbegin",
-          ` 
+          `
                 <li class="list-shop-header list-have-subset flex-center">
-                                <a href="#" class="link-shop-header ">${list.nameFa}</a> 
+                                <a href="#" class="link-shop-header ">${list.nameFa}</a>
                                 <i class="icon-menu-header fa">	&#xf107;</i>
                                 <ul class="subset-menu-header" id="${list.name}">
-        
+
                             </ul>
                                 </li>
                 `
@@ -612,7 +630,6 @@ const menu = (nowPage) => {
               j,
             ];
             keySearch.subsetIndex.push(moveInfoProducts);
-            // console.log(moveInfoProducts);
             subsetProduct.insertAdjacentHTML(
               "beforeend",
               `    <li class="list-product-header">
@@ -634,7 +651,6 @@ const menu = (nowPage) => {
   const sideBarMenu = () => {
     for (let i = 0; i < menuSubsetName.length; i++) {
       listHaveSubset[i].addEventListener("click", function (event) {
-        // console.log(event.target);
         if (
           window.innerWidth <= 975 &&
           (menuSubsetName[i] ==
@@ -642,7 +658,7 @@ const menu = (nowPage) => {
               .split("<")[0]
               .trim() ||
             menuSubsetName[i] ==
-              event.target.firstElementChild.innerHTML.split("<")[0].trim())
+              event.target.firstElementChild?.innerHTML.split("<")[0].trim())
         ) {
           iconBackMenu.style.cssText = `visibility: visible;
                             opacity: 1;`;
@@ -674,7 +690,7 @@ const menu = (nowPage) => {
           });
           containMenu.style.setProperty(
             "--change-background-menu",
-            `linear-gradient(45deg, rgb(29 30 31 / 46%), rgba(33, 50, 163, 0.23)), url(../images/${menuImages[i]})`
+            `linear-gradient(45deg, rgb(29 30 31 / 46%), rgba(33, 50, 163, 0.23)), url(../../images/${menuImages[i]})`
           );
         }
       });
@@ -684,14 +700,13 @@ const menu = (nowPage) => {
   function backToMainMenu() {
     iconBackMenu.style.cssText = `visibility: hidden;
         opacity: 0;`;
-    console.log(showSubsetMenu);
     showSubsetMenu.classList.remove("subset-menu-show");
     containMenu.classList.remove("change-background-menu");
     containMenu.classList.add("animate-background-menu");
     containList.classList.remove("hidden-text-js");
     containMenu.style.setProperty(
       "--change-background-menu",
-      `linear-gradient(45deg, #1971fc75, #2132a33b, #a25be2e0), url(../images/image-menu.png)`
+      `linear-gradient(45deg, #1971fc75, #2132a33b, #a25be2e0), url(../../images/image-menu.png)`
     );
   }
 
@@ -722,10 +737,8 @@ const menu = (nowPage) => {
       "opacity:1 !important;visibility:visible !important;right:0;";
     containMenu.style.setProperty(
       "--change-background-menu",
-      `linear-gradient(45deg, #1971fc75, #2132a33b, #a25be2e0), url(../images/image-menu.png)`
+      `linear-gradient(45deg, #1971fc75, #2132a33b, #a25be2e0), url(../../images/image-menu.png)`
     );
-    // event.target.parentElement.style.cssText =
-    //     "opacity:0;visibility:hidden;margin-right:0;";
   }
 
   function animationMenu() {
@@ -771,7 +784,6 @@ const search = (nowPage, display = "block") => {
             "products-list"
           )}?mainProduct=${[keySearch.mainIndex[j], findProduct]}`
         );
-        console.log([keySearch.mainIndex[j], findProduct]);
       }
     }
 
@@ -820,6 +832,57 @@ const search = (nowPage, display = "block") => {
   containProductsSearh.addEventListener("click", goToPage);
   userInput.addEventListener("input", findKeys);
 };
+
+// user-baket and login form
+
+const headerSizeHandler = (userInfo, showTextElem) => {
+  if (window.innerWidth > 810) {
+    showTextElem.innerHTML = `
+    ${JSON.parse(userInfo.split("=")[1]).username} عزیز به پنل خود خوش آمدید.
+    <span class="arrow"></span>
+    <span class="exit">خروج</span>
+    `;
+  } else {
+    showTextElem.innerHTML = `
+    ${JSON.parse(userInfo.split("=")[1]).username}
+    <span class="arrow"></span>
+    <span class="exit">خروج</span>
+    `;
+  }
+};
+
+const userLoginHandler = () => {
+  let userInfo = $.cookie;
+  let showTextElem = $.querySelector(".enter-text-header");
+  if (userInfo.split("=")[0] === "user" && JSON.parse(userInfo.split("=")[1])) {
+
+    showTextElem.classList.add("show-user-info");
+    showTextElem.classList.remove("enter-text-header");
+    headerSizeHandler(userInfo, showTextElem);
+    window.addEventListener("resize", () => {
+      headerSizeHandler(userInfo, showTextElem);
+    });
+
+    $.querySelector(".exit").addEventListener("click", () => {
+      $.cookie = `user=${JSON.stringify(null)};path=/`;
+      window.history.go(0);
+      showTextElem.classList.remove("show-user-info");
+      showTextElem.classList.add("enter-text-header");
+    });
+  } else {
+    showTextElem.innerHTML = "ورود / عضویت";
+    showTextElem.addEventListener("click", () => {
+      window.location.href = "../login-form/login-form.html";
+    });
+  }
+};
+const goToUserBasket = () => {
+  let basketBtn = $.querySelector(".basket-user-header");
+  basketBtn.addEventListener("click", () => {
+    window.location.href = "../user-basket/user-basket.html";
+  });
+};
+
 // go to explain of product page
 const showProductInfo = (id, nowPage) => {
   location.href =
@@ -862,4 +925,7 @@ export {
   load,
   virgolPriceOff,
   virgolPriceOn,
+  userLoginHandler,
+  goToUserBasket,
+  newProductsHandler,
 };

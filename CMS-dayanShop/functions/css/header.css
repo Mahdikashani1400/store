@@ -5,12 +5,7 @@ header {
   background: #ededed;
   justify-content: space-between;
 }
-/* .container-menu img{
-    width: 24px;
-    height: 26px;
-    /* background-color: #919ca9; 
 
-}*/
 .container-menu i {
   font-size: 26px;
 }
@@ -22,7 +17,7 @@ header {
   height: 35px;
 }
 .more-items span {
-  /* font-size: 13px; */
+  
 }
 .header-page nav > div {
   margin: 0.7rem 1.2rem;
@@ -44,7 +39,7 @@ header {
 }
 .more-items ul {
   position: absolute;
-  /* display: flex !important; */
+  
   transform: translateY(66%) translateX(0%);
   background: #fff;
   width: 175px;
@@ -85,24 +80,26 @@ header {
   top: 0;
   right: 0;
 }
+.menu a {
+  cursor: pointer;
+
+  
+}
 .open-mini-menu {
   width: 70px;
-  /* right: -70px; */
+  
   display: flex;
 }
 .open-menu {
   width: 230px;
-  /* right: -230px; */
+  
   display: flex;
 }
-/* body:not(.menu) {
-  margin-right: var(--space-body, 70px) !important;
-} */
 
 .icon-menu {
   cursor: pointer;
-  /* display: none; */
-  /* margin-right: 80px; */
+  
+  
 }
 .active.item {
   position: relative;
@@ -112,23 +109,59 @@ header {
   content: "";
   position: absolute;
   height: 100%;
-  /* bottom: 0; */
 
   border-right: 5px solid #1abb9c;
+}
+.item ul {
+  
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+.item ul a:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.open-mini-menu .item ul {
+}
+.open-menu .active.item ul {
+  height: 110px;
+  visibility: visible;
+  opacity: 1;
+  
+}
+.open-mini-menu .item ul {
+  position: absolute;
+  transform: translate(-69px, -100%);
+  width: max-content;
+  background-color: #3e5367;
+}
+.open-mini-menu .item ul a {
+  padding: 15px 1.8rem;
+}
+.open-mini-menu .active.item ul {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+.open-mini-menu .fa-circle {
+  display: none;
+}
+
+.fa-circle {
+  font-size: 10px !important;
+  color: #ffffffc9;
 }
 
 .menu li {
   width: 100%;
-  /* display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem; */
+
 }
 .menu li h1 {
   margin: 1rem 0;
   text-align: center;
 
-  /* font-size: 13px; */
+  
   color: #e7e7e7;
 }
 .open-mini-menu a {
@@ -141,12 +174,25 @@ header {
   font-size: 14px;
 }
 .menu a {
+  position: relative;
   padding: 1rem 0.7rem;
   align-items: center;
   display: flex;
 
   color: #e7e7e7;
-  /* align-items: ; */
+  
+}
+.fa-chevron-down {
+  position: absolute;
+  transform: translate(-198px, -2.5px);
+  font-size: 12px !important;
+}
+
+.open-mini-menu .fa-chevron-down {
+  display: none;
+}
+.open-menu .fa-chevron-down {
+  display: block;
 }
 .open-menu-item {
   display: none;
@@ -165,7 +211,7 @@ header {
   width: 48px;
   height: 46px;
   border: 4px solid #fff;
-  /* padding: 2px; */
+  
   border-radius: 50%;
 }
 .open-menu .welcome-img img {
@@ -230,7 +276,7 @@ small {
   cursor: pointer;
 }
 input::placeholder {
-  /* font-size: 13px; */
+  
   font-weight: 600;
 }
 

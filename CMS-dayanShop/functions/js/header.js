@@ -33,25 +33,37 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
         </div>
       </li>
       <li class="item active">
-        <a href=""><i class="fa fa-home"></i><span>خانه</span></a>
+        <a href="#"><i class="fa fa-home"></i><span>خانه</span></a>
       </li>
       <li class="item">
-        <a href=""
-          ><i><img src="../../takhfifat/img/Product-icon.png" alt="" /></i
+        <a href="#"
+          ><i class="fa fa-chevron-down"></i><i><img src="../../takhfifat/img/Product-icon.png" alt="" /></i
           ><span>محصولات</span></a
         >
+        <ul>
+        <a href="../../products/product-list/index.html"><i class="fa fa-circle"></i><span>لیست محصولات</span></a>
+        <a href="../../products/create-product/index.html"><i class="fa fa-circle"></i><span>محصول جدید</span></a>
+        </ul>
       </li>
       <li class="item">
-        <a href=""><i class="fa fa-bars"></i><span>منو ها</span></a>
+        <a href="#"><i class="fa fa-bars"></i><span>منو ها</span></a>
       </li>
       <li class="item">
-        <a href=""><i class="fa fa-comment"></i><span>دیدگاه ها</span></a>
+        <a href="#"><i class="fa fa-comment"></i><span>دیدگاه ها</span></a>
       </li>
       <li class="item">
-        <a href=""><i class="fa fa-percent"></i><span>تخفیفات</span></a>
+        <a href="#"><i class="fa fa-chevron-down"></i><i class="fa fa-percent"></i><span>تخفیفات</span></a>
+        <ul>
+        <a href="../../takhfifat/discount-list/index.html"><i class="fa fa-circle"></i><span>لیست تخفیفات</span></a>
+        <a href="../../takhfifat/create-discount/index.html"><i class="fa fa-circle"></i><span>تخفیف جدید</span></a>
+        </ul>
       </li>
       <li class="item">
-        <a href=""><i class="fa fa-users"></i><span>کاربران</span></a>
+        <a href="#"><i class="fa fa-chevron-down"></i><i class="fa fa-users"></i><span>کاربران</span></a>
+        <ul>
+        <a href="../../users/list-users/index.html"><i class="fa fa-circle"></i><span>لیست کاربران</span></a>
+    
+        </ul>
       </li>
     </ul>
   </div>
@@ -93,7 +105,6 @@ class Header extends HTMLElement {
   }
   connectedCallback() {
     const $ = this.shadowRoot;
-    // let removeBtn = $.querySelector("button");
     let menuIcon = $.querySelector(".icon-menu");
     let menu = $.querySelector(".menu");
     let title = $.querySelector("small");
@@ -118,7 +129,7 @@ class Header extends HTMLElement {
           menuState = "mini-menu";
         }
       } else {
-        console.log(menuState);
+        
         if (menuState === "close") {
           this.removeAddClass(menu, "close-menu", "open-mini-menu");
           menuState = "mini-menu";
@@ -131,15 +142,24 @@ class Header extends HTMLElement {
     });
 
     let adminMenu = $.querySelector(".more-items");
+
     adminMenu.addEventListener("click", this.adminMenuHandler);
     let menuItems = $.querySelectorAll(".item");
 
     menuItems.forEach((item) => {
-      item.lastElementChild.addEventListener("click", (e) => {
-        e.preventDefault();
+      item.addEventListener("click", (e) => {
+        if (
+          e.target.href === location.href ||
+          e.target.parentElement.href === location.href ||
+          e.target.parentElement.parentElement.href === location.href
+        ) {
+          e.preventDefault();
+        }
         activeSelect = $.querySelector(".active.item");
-        activeSelect.classList.remove("active");
-        item.classList.add("active");
+        activeSelect?.classList.remove("active");
+        if (item != activeSelect) {
+          item.classList.add("active");
+        }
       });
     });
   }
@@ -147,18 +167,18 @@ class Header extends HTMLElement {
     if (window.innerWidth >= 750) {
       if (menuState === "mini-menu") {
         this.removeAddClass(menu, "open-mini-menu", "open-menu");
-        console.log(menuState);
+        
 
         menuState = "menu";
-        console.log(menuState);
+        
       } else {
-        console.log(this.removeAddClass);
+        
 
         this.removeAddClass(menu, "open-menu", "open-mini-menu");
         menuState = "mini-menu";
       }
     } else {
-      console.log(menu);
+      
       if (menuState === "mini-menu") {
         this.removeAddClass(menu, "open-mini-menu", "close-menu");
         menuState = "close";

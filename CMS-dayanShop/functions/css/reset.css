@@ -231,10 +231,7 @@ body:not(.menu) {
   margin-right: var(--space-body, 70px);
 }
 
-/* body {
-  position: fixed;
-  width: -webkit-fill-available;
-} */
+
 @media only screen and (max-width: 730px) {
   html {
     zoom: 0.9;

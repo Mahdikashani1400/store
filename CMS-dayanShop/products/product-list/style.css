@@ -3,6 +3,32 @@
 @import url("../../functions/css/flex.css");
 @import url("../../functions/css/table-template.css");
 
+.swal2-title {
+  font-size: 20px;
+  line-height: 2.2rem;
+}
+.swal2-cancel {
+  background: #eb0050 !important;
+}
+.swal2-cancel:hover {
+  background: #a80139 !important;
+}
+.swal2-confirm {
+  background: #34771b !important;
+}
+.swal2-confirm:hover {
+  background: #204a11 !important;
+}
+.swal2-cancel,
+.swal2-confirm {
+  padding: 0.625rem 2.1rem;
+  transition: 0.3s;
+}
+.swal2-cancel:focus,
+.swal2-confirm:focus {
+  box-shadow: none !important;
+}
+
 .new-item-table {
   background: none;
   border: none;
@@ -22,16 +48,6 @@
 .new-item-table select:focus {
   outline: none;
 }
-/* .new-item-table:hover {
-  background: #169f85;
-} */
-/* .new-item-table a {
-  color: #fff;
-} */
-
-/* .new-item-table i {
-  border-right: 1px solid #ccc;
-} */
 
 #searchTitle {
   width: 100%;

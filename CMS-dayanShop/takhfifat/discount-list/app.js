@@ -39,11 +39,11 @@ function removeDiscount(id) {
   localStorage.setItem("discounts", JSON.stringify(discountsInfo));
   getDiscounts();
 }
-
+let discountPrice = null;
 function getDiscounts() {
   tbody.innerHTML = "";
-
   discountsInfo.forEach((discount) => {
+    discountPrice = discount.price;
     tbody.insertAdjacentHTML(
       "afterbegin",
       `
@@ -63,7 +63,7 @@ function getDiscounts() {
       <td>
         ${discount.kind}
       </td>
-      <td>${discount.price}</td>
+      <td>${discountPrice}</td>
       <td>
         <div class="btn-item-table discount flex-row">
         

@@ -1,0 +1,173 @@
+.contain-number-page {
+  gap: 2rem;
+}
+
+.box-number-page {
+  gap: 2.5rem;
+}
+
+.title-number-page {
+  color: #111;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.contain-page-text {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  border: 1px solid #d0cdcd;
+  transition: 0.3s;
+  color: #777;
+  transition: 0.3s;
+}
+
+.number-page-text {
+}
+
+.contain-page-text:hover {
+  background-color: #111;
+}
+
+.select-page-color {
+  background-color: var(--background-red);
+}
+
+.select-page-color {
+  color: var(--color-white);
+}
+
+.contain-page-text:hover {
+  color: var(--color-white);
+}
+
+.support-number-page {
+  padding: 2rem;
+}
+
+.title-number-page {
+  font-size: 18px;
+}
+
+.contain-finally-shop {
+  width: 100%;
+}
+
+.short-info-shop {
+  background-color: #37474f;
+  grid-gap: 10px;
+  grid-auto-rows: 75px;
+  color: #eeeeee;
+}
+/* wtf */
+.short-info-shop > div > span {
+  padding: 0.1rem 0;
+}
+
+.time-answer-shop {
+  padding: 1.2rem 0;
+}
+
+.text-time-answer {
+  font-weight: 100;
+  padding-right: 2rem;
+}
+
+.phone-answer-shop {
+}
+
+.icon-phone-answer {
+  margin-left: 10px !important;
+}
+
+.text-phone-answer {
+  font-weight: 100;
+}
+
+.email-answer-shop {
+  font-weight: 100;
+}
+
+.icon-email-answer {
+  margin-left: 10px;
+}
+
+.text-email-answer {
+}
+
+.finally-menu-shop {
+  grid-gap: 20px;
+  padding: 2rem 0;
+}
+
+.contain-finally-menu {
+}
+
+.title-finally-menu {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #616161;
+}
+
+.finally-menu-self {
+  align-items: baseline;
+}
+
+.finally-menu-list {
+  list-style: circle;
+  list-style-type: disc;
+  width: -webkit-fill-available;
+  text-align: initial;
+}
+
+.finally-menu-list::marker {
+  border: none;
+  color: #b4a3a36a;
+  transition: 0.3s;
+}
+
+.finally-menu-list:hover::marker {
+  color: var(--background-red);
+}
+
+.finally-menu-link {
+  display: block;
+  padding: 5px 0;
+  color: #999;
+  transition: 0.3s;
+}
+
+.finally-menu-link:hover {
+  color: #424242;
+}
+
+@media only screen and (max-width: 894px) {
+  .short-info-shop {
+    /* grid-template-rows: repeat(3, 75px); */
+    grid-auto-flow: row;
+    grid-template-columns: auto;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .text-grades-buying,
+  .short-info-shop {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title-number-page,
+  .title-finally-menu {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 438px) {
+  .finally-menu-shop {
+    grid-template-columns: auto;
+  }
+}

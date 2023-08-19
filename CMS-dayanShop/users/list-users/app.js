@@ -42,15 +42,13 @@ function getUsers() {
 
 window.editUser = editUser;
 let userEdited = null;
-
 async function editUser(id) {
   hasEmail = false;
   hasUser = false;
   userEdited = [...usersInfo].filter((user) => {
     return user.id == id;
   })[0];
-  console.log(userEdited.username);
-  console.log(userEdited.email);
+
   let { value: formValues } = await newItemInputs.fire({
     title: "ویرایش کاربر",
     html:
@@ -98,7 +96,7 @@ async function editUser(id) {
         };
       } else {
         Swal.showValidationMessage(
-          `لطفا اطلاعات خواسنه شده را به درستی وارد کنید.`
+          `لطفا اطلاعات خواسته شده را به درستی وارد کنید.`
         );
       }
     },
@@ -115,6 +113,11 @@ async function editUser(id) {
       return user;
     });
     localStorage.setItem("users", JSON.stringify(usersInfo));
+    Toast.fire({
+      icon: "success",
+      text: "اطلاعات کاربر مورد نظر با موفقیت ویرایش شد.",
+      timer: 2000,
+    });
     getUsers();
   }
 }
@@ -125,6 +128,11 @@ function removeUser(id) {
     return user.id != id;
   });
   localStorage.setItem("users", JSON.stringify(usersInfo));
+  Toast.fire({
+    icon: "success",
+    text: "کاربر مورد نظر با موفقیت حذف شد.",
+    timer: 2000,
+  });
   getUsers();
 }
 
@@ -187,7 +195,7 @@ newItemBtn.addEventListener("click", async () => {
         };
       } else {
         Swal.showValidationMessage(
-          `لطفا اطلاعات خواسنه شده را به درستی وارد کنید.`
+          `لطفا اطلاعات خواسته شده را به درستی وارد کنید.`
         );
       }
     },
@@ -195,28 +203,12 @@ newItemBtn.addEventListener("click", async () => {
   if (formValues && !hasEmail && !hasUser) {
     usersInfo.push(formValues);
     localStorage.setItem("users", JSON.stringify(usersInfo));
+    Toast.fire({
+      icon: "success",
+      text: "کاربر جدید با موفقیت به لیست اضافه شد.",
+      timer: 2000,
+    });
+
     getUsers();
   }
 });
-
-// const { value: formValues } = await Swal.fire({
-//   title: "افزودن کاربر جدید",
-//   html:
-//     '<div class="contain-input-swal"><lable>نام کاربری</lable> <input id="swal-input1" class="swal2-input"></div>' +
-//     '<div class="contain-input-swal"><lable>ایمیل</lable> <input id="swal-input2" type="email" class="swal2-input"></div>' +
-//     '<div class="contain-input-swal"><lable>رمز ورود</lable> <input id="swal-input3" type="password" class="swal2-input"></div>',
-//   showCancelButton: true,
-//   confirmButtonText: "تایید",
-//   cancelButtonText: "بازگشت",
-//   preConfirm: () => {
-//     return {
-//       username: document.getElementById("swal-input1").value,
-//       email: document.getElementById("swal-input2").value,
-//       password: document.getElementById("swal-input3").value,
-//     };
-//   },
-// });
-
-// if (formValues) {
-//   Swal.fire(JSON.stringify(formValues));
-// }

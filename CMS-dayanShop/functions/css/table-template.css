@@ -25,13 +25,11 @@ form {
 }
 main form > div {
   width: 30%;
-  /* flex-grow: 1; */
   background: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: calc(1.5em + 0.75rem + 2px);
-  /* padding: 0.375rem 0.75rem; */
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -39,7 +37,6 @@ main form > div {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  /* border-radius: 0.25rem; */
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .control-item-table {
@@ -64,7 +61,6 @@ main form > div {
   height: 23px;
   width: 23px;
   font-size: 16px;
-  /* padding-left: 1.7rem; */
   padding: 0 1rem;
   display: flex;
   justify-content: center;
@@ -138,7 +134,6 @@ td {
 
 .code-item-table,
 .state-item-table {
-  /* min-width: 60px; */
   width: 100px;
 }
 .btn-item-table {

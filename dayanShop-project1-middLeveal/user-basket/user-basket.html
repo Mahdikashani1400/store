@@ -1,77 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="user-basket.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
     <script type="module" async src="user-basket.js"></script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <section class="contain-pre-loader flex-center display-none">
-        <div class="preloader-change-page flex-center display-none">
-            <img src="../pre-loader/shop.gif" alt="">
-        </div>
-        <div class="fake-background-load display-none"></div>
-
+      <div class="preloader-change-page flex-center display-none">
+        <img src="../pre-loader/shop.gif" alt="" />
+      </div>
+      <div class="fake-background-load display-none"></div>
     </section>
 
     <section class="section-modal-handle flex-center display-none">
-        <div class="modal-discount-product flex-center-column hidden">
-            <span class="modal-close-discount flex-center">x</span>
-            <h4 class="text-modal-discount">لطفا کد تخفیف خود را وارد کنید</h4>
-            <input type="text" name="" id="modal-input-discount" class="modal-input-discount" placeholder="کد تخفیف :" />
-            <button class="modal-btn-discount">اعمال</button>
-        </div>
-        <div class="ok-reject-code hidden">
-            <span class="text-ok-reject">کد تخفیف شما با موفقیت اعمال شد</span></div>
+      <div class="modal-discount-product flex-center-column hidden">
+        <span class="modal-close-discount flex-center">x</span>
+        <h4 class="text-modal-discount">لطفا کد تخفیف خود را وارد کنید</h4>
+        <input
+          type="text"
+          name=""
+          id="modal-input-discount"
+          class="modal-input-discount"
+          placeholder="کد تخفیف :"
+        />
+        <button class="modal-btn-discount">اعمال</button>
+      </div>
+      <div class="ok-reject-code hidden">
+        <span class="text-ok-reject">کد تخفیف شما با موفقیت اعمال شد</span>
+      </div>
 
-        <div class="modal-circle-chance flex-center-column hidden">
-            <div class="contain-slice-chane">
-                <div class="modal-slice-chane"></div>
-                <div class="modal-slice-chane"></div>
-                <div class="modal-slice-chane"></div>
-                <div class="modal-slice-chane"></div>
-            </div>
-            <div class="contain-btn-chance">
-                <button class="turn-down-chance">بچرخون</button>
-                <button class="dont-turn-chance">نمیخوام</button>
-            </div>
+      <div class="modal-circle-chance flex-center-column hidden">
+        <canvas class="contain-slice-chane">
+      </canvas>
+        <div class="contain-btn-chance">
+          <button class="turn-down-chance">بچرخون</button>
+          <button class="dont-turn-chance">نمیخوام</button>
         </div>
-        <div class="show-discount-code flex-center-column hidden">
-            <p class="text-show-code"></p>
-            <div class="copy-discount-code flex-center">
-                <div class="contaian-text-discount flex-center">
-                    <p class="text-discount-code"></p>
-                </div>
-                <div class="contaian-icon-discount flex-center">
-                    <i class="icon-discount-code fa fa-file"></i>
-                </div>
-
-            </div>
-            <button class="btn-finish-copy">
-              حله :)
-            </button>
+      </div>
+      <div class="show-discount-code flex-center-column hidden">
+        <p class="text-show-code"></p>
+        <div class="copy-discount-code flex-center">
+          <div class="contaian-text-discount flex-center">
+            <p class="text-discount-code"></p>
+          </div>
+          <div class="contaian-icon-discount flex-center">
+            <i class="icon-discount-code fa fa-file"></i>
+          </div>
         </div>
+        <button class="btn-finish-copy">حله :)</button>
+      </div>
     </section>
     <div id="all">
-        <header class="info-search-hearde">
-            <div class="contain-accessibility-header">
-                <div class="user-react-header flex-center">
-                    <div class="enter-user-header flex-center">
-                        <span class="enter-text-header">ورود / عضویت</span>
-                    </div>
-                    <div class="basket-user-header flex-center">
-                        <div class="contain-user-icon flex-center">
-                            <i class="icon-user-header fas fa-user"></i>
-                        </div>
-                        <span class="basket-text-header">سبد خرید شما</span
+      <header class="info-search-hearde">
+        <div class="contain-accessibility-header">
+          <div class="user-react-header flex-center">
+            <div class="enter-user-header flex-center">
+              <p class="enter-text-header">
+                ورود / عضویت
+                <span class="arrow"></span>
+                <span class="exit"></span>
+              </p>
+            </div>
+            <div class="basket-user-header flex-center">
+              <div class="contain-user-icon flex-center">
+                <i class="icon-user-header fas fa-user"></i>
+              </div>
+              <span class="basket-text-header">سبد خرید شما</span
               ><i class="icon-basket-header fa"> &#xf07a;</i>
             </div>
           </div>
@@ -83,116 +88,113 @@
               placeholder="محصول مورد نظر خود را جستجو کنید ..."
             />
             <div class="contain-icon-search">
-                <a class="icon-search-header"></a>
+              <a class="icon-search-header"></a>
             </div>
           </div>
           <div class="logo-shop-header flex-center">
-            <img
-              src="../images/logo.png"
-                       class="image-logo-header"
-            />
+            <img src="../images/logo.png" class="image-logo-header" />
           </div>
           <div class="menu-bar-header">
             <i class="icon-menu-bar fa fa-bars"></i>
           </div>
         </div>
         <nav class="contain-menu-header flex-center">
-            <i class="back-icon-header fa">	&#xf060;</i>
-            <div class="contain-close-menu flex-center"><span class="close-menu-header">x</span></div>
-                    <ul class="menu-lists-header flex-center"></ul>
-                    </nav>
+          <i class="back-icon-header fa"> &#xf060;</i>
+          <div class="contain-close-menu flex-center">
+            <span class="close-menu-header">x</span>
+          </div>
+          <ul class="menu-lists-header flex-center"></ul>
+        </nav>
+      </header>
 
-        </header>
-
-        <section class="section-grades-buying hidden-for-situation">
-            <div class="contain-grades-buying flex-center">
-                <div class="box-grades-buying flex-center-column flex-center-column">
-                    <div class="contain-icon-grades flex-center select-grades-buying">
-                        <i class="icon-grades-buying fa"> &#xf290;</i>
-                    </div>
-                    <div class="contain-text-grades">
-                        <h3 class="text-grades-buying">سبد خرید شما</h3>
-                    </div>
-                </div>
-                <div class="box-grades-buying flex-center-column">
-                    <div class="contain-icon-grades flex-center show-number-grade-2">
-                        <i class="icon-grades-buying fa">&#xf2bd;</i>
-                    </div>
-                    <div class="contain-text-grades">
-                        <h3 class="text-grades-buying">مشخصات ارسال</h3>
-                    </div>
-                </div>
-                <div class="box-grades-buying flex-center-column">
-                    <div class="contain-icon-grades flex-center show-number-grade-3">
-                        <i class="icon-grades-buying fa"> &#xf1ec;</i>
-                    </div>
-                    <div class="contain-text-grades">
-                        <h3 class="text-grades-buying">فاکتور نهایی</h3>
-                    </div>
-                </div>
+      <section class="section-grades-buying hidden-for-situation">
+        <div class="contain-grades-buying flex-center">
+          <div class="box-grades-buying flex-center-column flex-center-column">
+            <div class="contain-icon-grades flex-center select-grades-buying">
+              <i class="icon-grades-buying fa"> &#xf290;</i>
             </div>
-        </section>
-
-        <section class="section-products-info hidden-for-situation">
-            <div class="contain-products-info">
-                <div class="contain-title-products">
-                    <h1 class="title-products-picture">عکس محصول</h1>
-                    <h1 class="title-products-particular">عنوان و ویژگی انتخاب شده</h1>
-                    <h1 class="title-products-count">انتخاب تعداد</h1>
-                    <h1 class="title-products-discount">تخفیف</h1>
-                    <h1 class="title-products-price">قیمت واحد</h1>
-                    <h1 class="title-products-remove">حذف</h1>
-                </div>
-                <div class="container-all-products">
-
-                </div>
-                <div class="contain-calculation-products">
-                    <div class="contain-calculation-price">
-                        <h3 class="number-calculation-price">
-                            قیمت کل محصولات : <span class="number-price"></span>
-                            <span class="animate-discount-price1"></span>
-                            <span class="animate-discount-price2">
-                              <span class="discount-price"></span>
-                            </span>
-                        </h3>
-                    </div>
-                    <div class="contain-have-discount">
-                        <h3 class="text-have-discount">کد تخفیف دارید؟</h3>
-                    </div>
-                </div>
+            <div class="contain-text-grades">
+              <h3 class="text-grades-buying">سبد خرید شما</h3>
             </div>
-
-            <div class="contain-button-arrive flex-center">
-                <button class="button-arrive-text">ورود و ثبت سفارش</button>
-                <div class="contain-replace-discount flex-center hidden display-none">
-                    <p class="text-replace-discount">تخفیف مد نظر شما با موفقیت اعمال شد</p>
-                    <i class="icon-replace-discount fa fa-check-circle"></i>
-                </div>
+          </div>
+          <div class="box-grades-buying flex-center-column">
+            <div class="contain-icon-grades flex-center show-number-grade-2">
+              <i class="icon-grades-buying fa">&#xf2bd;</i>
             </div>
-        </section>
-        <div class="contain-back-topage flex-center display-none">
-            <i class="icon-back-topage fa">&#xf060;</i>
-            <span class="text-back-topage">بازگشت به صفحه اصلی</span>
+            <div class="contain-text-grades">
+              <h3 class="text-grades-buying">مشخصات ارسال</h3>
+            </div>
+          </div>
+          <div class="box-grades-buying flex-center-column">
+            <div class="contain-icon-grades flex-center show-number-grade-3">
+              <i class="icon-grades-buying fa"> &#xf1ec;</i>
+            </div>
+            <div class="contain-text-grades">
+              <h3 class="text-grades-buying">فاکتور نهایی</h3>
+            </div>
+          </div>
         </div>
-        <div class="alert-product-situation flex-center">
-            <p class="alert-error-product">
-                محصول مورد نظر شما یافت نشد
+      </section>
+
+      <section class="section-products-info hidden-for-situation">
+        <div class="contain-products-info">
+          <div class="contain-title-products">
+            <h1 class="title-products-picture">عکس محصول</h1>
+            <h1 class="title-products-particular">عنوان و ویژگی انتخاب شده</h1>
+            <h1 class="title-products-count">انتخاب تعداد</h1>
+            <h1 class="title-products-discount">تخفیف</h1>
+            <h1 class="title-products-price">قیمت واحد</h1>
+            <h1 class="title-products-remove">حذف</h1>
+          </div>
+          <div class="container-all-products"></div>
+          <div class="contain-calculation-products">
+            <div class="contain-calculation-price">
+              <h3 class="number-calculation-price">
+                قیمت کل محصولات : <span class="number-price"></span>
+                <span class="animate-discount-price1"></span>
+                <span class="animate-discount-price2">
+                  <span class="discount-price"></span>
+                </span>
+              </h3>
+            </div>
+            <div class="contain-have-discount">
+              <h3 class="text-have-discount">کد تخفیف دارید؟</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="contain-button-arrive flex-center">
+          <button class="button-arrive-text">ورود و ثبت سفارش</button>
+          <div class="contain-replace-discount flex-center hidden display-none">
+            <p class="text-replace-discount">
+              تخفیف مد نظر شما با موفقیت اعمال شد
             </p>
-
+            <i class="icon-replace-discount fa fa-check-circle"></i>
+          </div>
         </div>
-        <section class="contain-finally-shop">
-            <footer class="short-info-shop grid-center">
-                <div class="time-answer-shop flex-center">
-                    <span class="text-time-answer">ساعت پاسخگویی پشتیبانی شنبه تا پنج شنبه 9 تا 17</span
+      </section>
+      <div class="contain-back-topage flex-center display-none">
+        <i class="icon-back-topage fa">&#xf060;</i>
+        <span class="text-back-topage">بازگشت به صفحه اصلی</span>
+      </div>
+      <div class="alert-product-situation flex-center">
+        <p class="alert-error-product">محصول مورد نظر شما یافت نشد</p>
+      </div>
+      <section class="contain-finally-shop">
+        <footer class="short-info-shop grid-center">
+          <div class="time-answer-shop flex-center">
+            <span class="text-time-answer"
+              >ساعت پاسخگویی پشتیبانی شنبه تا پنج شنبه 9 تا 17</span
             >
           </div>
           <div class="phone-answer-shop flex-center">
             <i class="icon-phone-answer fa">&#xf095;</i>
             <span class="text-phone-answer">شماره تماس: 05191001370</span>
-                </div>
-                <div class="email-answer-shop flex-center">
-                    <i class="icon-email-answer fa">&#xf0e0;</i>
-                    <span class="text-email-answer">آدرس ایمیل: info@dayanshop.com</span
+          </div>
+          <div class="email-answer-shop flex-center">
+            <i class="icon-email-answer fa">&#xf0e0;</i>
+            <span class="text-email-answer"
+              >آدرس ایمیل: info@dayanshop.com</span
             >
           </div>
         </footer>
@@ -242,7 +244,6 @@
         </div>
       </section>
     </div>
-    
-
-</body>
+    <input type="number" name="" id="" disabled />
+  </body>
 </html>

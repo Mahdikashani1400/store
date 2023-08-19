@@ -8,6 +8,9 @@ import {
   search,
   virgolPriceOff,
   virgolPriceOn,
+  userLoginHandler,
+  goToUserBasket,
+  newProductsHandler,
 } from "../functions/functions.js";
 
 window.countPlus = countPlus;
@@ -35,9 +38,13 @@ let containInfoProducts = $.querySelector(".container-all-products");
 
 let allPrice = 0;
 let priceContainer = $.querySelector(".number-price");
+
+let imgNewData = "../images/new-product.jpg";
+
 window.addEventListener("load", () => {
   preLoader();
-
+  userLoginHandler();
+  goToUserBasket();
   try {
     allOfInfoProducts = JSON.parse(localStorage.getItem("infoProducts"));
     if (allOfInfoProducts === null) {
@@ -57,8 +64,6 @@ window.addEventListener("load", () => {
           return product.model == productTargetInfo[productTarget[1] - 1].model;
         })
       ) {
-        // productTargetInfo[productTarget[1] - 1].count = 1
-
         if (productTarget[2]) {
           productTargetInfo[productTarget[1] - 1].size = productTarget[2];
         } else {
@@ -71,12 +76,7 @@ window.addEventListener("load", () => {
         if (!product.count) {
           product.count = 1;
         }
-        // if (productTarget[2]) {
-        //     productTargetInfo[productTarget[1] - 1].size = productTarget[2]
-        // } else {
-        //     productTargetInfo[productTarget[1] - 1].size = 'نا مشخص'
-        // }
-        // console.log(product.coun);
+
         containInfoProducts.insertAdjacentHTML(
           "beforeend",
           `
@@ -85,7 +85,7 @@ window.addEventListener("load", () => {
           }-container">
         <div class="contain-image-product flex-center">
             <img src="${
-              product.image
+              product?.state ? imgNewData : product.image
             }" alt="" class="image-product-particular" />
         </div>
         <div class="contain-model-product">
@@ -146,7 +146,9 @@ window.addEventListener("load", () => {
         }-${productTargetInfo[productTarget[1] - 1].id}-container">
         <div class="contain-image-product flex-center">
             <img src="${
-              productTargetInfo[productTarget[1] - 1].image
+              product?.state
+                ? imgNewData
+                : productTargetInfo[productTarget[1] - 1].image
             }" alt="" class="image-product-particular" />
         </div>
         <div class="contain-model-product">
@@ -207,7 +209,6 @@ window.addEventListener("load", () => {
         backElement.addEventListener("click", () => {
           location.href = location.pathname.replace("user-basket", "main-page");
         });
-        // displayNone(containAllProducts)
       }, 1500);
     } else {
       allOfInfoProducts.forEach((product) => {
@@ -222,7 +223,7 @@ window.addEventListener("load", () => {
           }-container">
         <div class="contain-image-product flex-center">
             <img src="${
-              product.image
+              product?.state ? imgNewData : product.image
             }" alt="" class="image-product-particular" />
         </div>
         <div class="contain-model-product">
@@ -270,6 +271,7 @@ window.addEventListener("load", () => {
   }
 });
 
+newProductsHandler();
 // caculate price of products
 
 function priceHandler(inputTarget, state) {
@@ -290,25 +292,12 @@ function priceHandler(inputTarget, state) {
   productChoise.count = inputTarget.value;
   allPrice += +productChoise.count * +productChoise.price;
 
-  // let discountGood = +productChoise.count * +productChoise.price;
-  // console.log(discountGood);
-  // if (discountPrice) {
-  //     if (discountPrice.slice(-1) == "%") {
-
-  //         // allPrice -= ((+productChoise.count * +productChoise.price) * (+discountPrice.slice(0, -1) / 100)).toFixed(2);
-  //     }
-  //     finishPrice.innerHTML = `${virgolPriceOn(allPrice)} تومان`
-  // }
-
   if (finishPrice.innerHTML.trim() !== "") {
-    // finishPrice.innerHTML = `${virgolPriceOn(allPrice)} تومان`
     displayNone(animateDiscount1);
     displayNone(animateDiscount2);
     displayNone(discountReplaceText);
   }
-  // else {
   priceContainer.innerHTML = `${virgolPriceOn(allPrice)} تومان`;
-  // }
 
   allOfInfoProducts = allOfInfoProducts.map((product) => {
     if (
@@ -364,6 +353,7 @@ let modalHandler = $.querySelector(".section-modal-handle");
 let getDiscountCode = $.querySelector(".modal-discount-product");
 let containChanceCircle = $.querySelector(".modal-circle-chance");
 let chanceCircle = $.querySelector(".contain-slice-chane");
+let ctxCircle = chanceCircle.getContext("2d");
 let showDiscount = $.querySelector(".text-have-discount");
 let closeDiscount = $.querySelector(".modal-close-discount");
 let submitDiscount = $.querySelector(".modal-btn-discount");
@@ -379,19 +369,49 @@ showDiscount.addEventListener("click", () => {
 });
 let submitForm = $.querySelector(".button-arrive-text");
 
-// کد تخفیف وارد شده صحیح نمیباشد
 closeDiscount.addEventListener("click", () => {
   hidden(getDiscountCode);
   setTimeout(() => {
     displayNone(modalHandler);
     userInputCode.value = "";
-
-    // displayNone(getDiscountCode)
   }, 300);
 });
 
-let chanceTitle = ["150", "50", "پوچ", "50%"];
-let chanceCode = ["FIRSTFULL", "FIRSTHALF", "", "FIRST"];
+let chanceTitle = ["پوچ"];
+let chanceCode = [""];
+
+let staticTitle = [];
+let staticCode = [];
+
+let discountsInfo = JSON.parse(localStorage.getItem("discounts")) || [];
+
+let priceTarget;
+discountsInfo.forEach((discount) => {
+  priceTarget = +discount.price;
+  if (
+    discount.kind.split(" ")[2] === "گردونه" &&
+    discount.check === "checked"
+  ) {
+    chanceCode.push(discount.code);
+    if (discount.kind.split(" ")[1] === "درصدی") {
+      chanceTitle.push(`${priceTarget} درصد`);
+    } else {
+      chanceTitle.push(`${priceTarget.toLocaleString()} تومان`);
+    }
+  } else if (
+    discount.kind.split(" ")[2] === "سبد" &&
+    discount.check === "checked"
+  ) {
+    staticCode.push(discount.code);
+    if (discount.kind.split(" ")[1] === "درصدی") {
+      staticTitle.push(`${priceTarget} درصد`);
+    } else {
+      staticTitle.push(`${priceTarget.toLocaleString()} تومان`);
+    }
+  }
+});
+console.log(chanceCode);
+console.log(chanceTitle);
 let randomChance;
 let turnDown = $.querySelector(".turn-down-chance");
 let showDiscountCode = $.querySelector(".show-discount-code");
@@ -399,6 +419,66 @@ let codeText = $.querySelector(".text-show-code");
 let copyCode = $.querySelector(".copy-discount-code");
 let closeCodeText = $.querySelector(".btn-finish-copy");
 let discountCode = $.querySelector(".text-discount-code");
+
+let secondPoint = null;
+let startPoint = null;
+let circleOrigin = null;
+
+let countOfCode = chanceTitle.length;
+let countOfCodeVar =
+  countOfCode == 2 || countOfCode == 3
+    ? 0
+    : countOfCode == 4 || countOfCode == 5
+    ? 1
+    : countOfCode == 6 || countOfCode == 7
+    ? 2
+    : "";
+function createChanceCircle() {
+  chanceCircle.width = 300;
+  chanceCircle.height = 300;
+  ctxCircle.font = "16px Tahoma";
+  ctxCircle.textAlign = "center";
+  ctxCircle.strokeStyle = "blue";
+  ctxCircle.translate(150, 150);
+  ctxCircle.fillStyle = "#672fff";
+
+  if (countOfCode % 2 === 0) {
+    circleOrigin = `90deg`;
+  } else {
+    circleOrigin = ` ${360 / countOfCode / 2 + 90}deg`;
+  }
+  chanceCircle.style.setProperty("--circle-origin", circleOrigin);
+  chanceTitle.forEach((title) => {
+    secondPoint = (1 / countOfCode) * (Math.PI * 2) + startPoint;
+    console.log(secondPoint);
+    ctxCircle.beginPath();
+    ctxCircle.moveTo(0, 0);
+
+    if (title === "پوچ") {
+      ctxCircle.fillStyle = "red";
+    } else {
+      ctxCircle.fillStyle = randomColor();
+    }
+    ctxCircle.arc(0, 0, 150, startPoint, secondPoint);
+    ctxCircle.fill();
+    ctxCircle.fillStyle = "#fff";
+    // ctxCircle.rotate(-Math.PI);
+    ctxCircle.fillText(
+      title,
+      Math.cos((startPoint + secondPoint) / 2) * 75 * 1.2,
+      Math.sin((startPoint + secondPoint) / 2) * 75 * 1.2
+    );
+
+    startPoint = secondPoint;
+  });
+}
+createChanceCircle();
+function randomColor() {
+  return `rgb(${Math.random() * 200},${Math.random() * 200},${
+    Math.random() * 200
+  })`;
+}
+
 closeCodeText.addEventListener("click", () => {
   hidden(showDiscountCode);
   setTimeout(() => {
@@ -409,26 +489,21 @@ closeCodeText.addEventListener("click", () => {
 let discountPrice;
 turnDown.addEventListener("click", () => {
   while (true) {
-    // randomChance = 14;
     randomChance = Math.ceil(Math.random() * 20);
-    if (randomChance >= 12 && randomChance <= 20) {
+    if (randomChance >= countOfCode * 3 && randomChance <= countOfCode * 7) {
       break;
     }
   }
-  let timeChance = 0.1;
-  let degChance = 90;
-
+  let timeChance = 0.4;
+  console.log(randomChance);
+  let degChance = 360 / countOfCode / 2 + Number(circleOrigin.split("deg")[0]);
+  console.log(degChance);
   timeChance *= randomChance;
-  degChance *= randomChance;
+  degChance += (randomChance * 360) / countOfCode;
   chanceCircle.classList.add("turn-down-user");
   chanceCircle.style.setProperty("--time-chance", `${timeChance}s`);
-  chanceCircle.style.setProperty(
-    "--deg-chance",
-    `rotate(${degChance + 45}deg)`
-  );
-  // hidden(turnDown)
-  // hidden(closeChanceCircle)
-  // setTimeout(() => {
+  chanceCircle.style.setProperty("--deg-chance", `${degChance}deg`);
+
   displayNone(turnDown);
   displayNone(closeChanceCircle);
   console.log(window.innerWidth);
@@ -437,19 +512,19 @@ turnDown.addEventListener("click", () => {
   } else {
     containChanceCircle.style.setProperty("--top-arrow-circle", "67px");
   }
-  // }, 400)
-
-  discountPrice = chanceTitle[randomChance % chanceTitle.length];
-  if (discountPrice == "50%") {
-    codeText.innerHTML = "کد تخفیف 50 درصدیتون آمادس. برید حالشو ببرید:)";
-    discountCode.innerHTML = chanceCode[randomChance % chanceCode.length];
-  } else if (discountPrice == "پوچ") {
+  console.log(randomChance);
+  discountPrice =
+    chanceTitle[countOfCode - ((randomChance - countOfCodeVar) % countOfCode)];
+  console.log(discountPrice);
+  if (discountPrice == undefined) {
     displayNone(copyCode);
     codeText.innerHTML = "متاسفانه این بار شانس نداشتی گلم ... :( ";
   } else {
-    codeText.innerHTML = `کد تخفیف ${discountPrice} هزار تومنیتون آمادس. برید حالشو ببرید:)`;
-    discountCode.innerHTML = chanceCode[randomChance % chanceCode.length];
+    codeText.innerHTML = `کد تخفیف ${discountPrice}یتون آمادس. برید حالشو ببرید:)`;
+    discountCode.innerHTML =
+      chanceCode[countOfCode - ((randomChance - countOfCodeVar) % countOfCode)];
   }
+  console.log(discountPrice.split("تومان")[0]);
 });
 chanceCircle.addEventListener("animationend", (event) => {
   if (event.animationName === "turn-down-user") {
@@ -457,8 +532,8 @@ chanceCircle.addEventListener("animationend", (event) => {
     show(showDiscountCode);
     setTimeout(() => {
       displayNone(containChanceCircle);
-    }, 301);
-    console.log(chanceTitle[randomChance % chanceTitle.length]);
+    }, 500);
+    console.log(chanceTitle[randomChance % countOfCode]);
   }
 });
 
@@ -472,7 +547,6 @@ closeChanceCircle.addEventListener("click", () => {
   hidden(containChanceCircle);
   setTimeout(() => {
     displayNone(modalHandler);
-    // displayNone(containChanceCircle)
   }, 400);
 });
 
@@ -488,10 +562,7 @@ let containDiscountIcon = $.querySelector(".contaian-icon-discount");
 let discountIcon = $.querySelector(".icon-discount-code");
 containDiscountIcon.addEventListener("click", () => {
   let codePast = discountCode.innerHTML;
-  //   console.log(codePast);
-  window.navigator.clipboard
-    .writeText(codePast)
-    .then((res) => console.log(res));
+  window.navigator.clipboard.writeText(codePast);
 
   discountIcon.classList.remove("fa-file");
   discountIcon.classList.add("fa-check");
@@ -504,27 +575,37 @@ let discountReplaceText = $.querySelector(".contain-replace-discount");
 let animateDiscount1 = $.querySelector(".animate-discount-price1");
 let animateDiscount2 = $.querySelector(".animate-discount-price2");
 let contaianButton = $.querySelector(".contain-button-arrive");
+function greenState() {
+  stateCode.style.background = "#246c25";
+  stateCodeText.innerHTML = "کد تخفیف شما با موفقیت اعمال شد";
+  setTimeout(() => {
+    animateDiscount1.style.setProperty(
+      "--animate-discount-1",
+      "animate-discount-1 .5s both"
+    );
+    animateDiscount1.style.setProperty(
+      "--shadow-discount",
+      "0 0 10px 5px #fff"
+    );
+    showDiscount.innerHTML = "";
+  }, 1000);
+}
+let staticCodeIndex = null;
 submitDiscount.addEventListener("click", () => {
+  staticCodeIndex = staticCode.findIndex((code) => code == userInputCode.value);
   if (
-    userInputCode.value !== discountCode.innerHTML ||
-    userInputCode.value.trim() === ""
+    (userInputCode.value === discountCode.innerHTML ||
+      staticCodeIndex !== -1) &&
+    userInputCode.value.trim() !== ""
   ) {
+    greenState();
+    discountPrice =
+      discountPrice ||
+      (staticCodeIndex !== -1 ? staticTitle[staticCodeIndex] : null);
+    submitForm.removeEventListener("click", showModal);
+  } else {
     stateCode.style.background = "#eb3838";
     stateCodeText.innerHTML = "کد تخفیف وارد شده معتبر نمیباشد!";
-  } else {
-    stateCode.style.background = "#246c25";
-    stateCodeText.innerHTML = "کد تخفیف شما با موفقیت اعمال شد";
-    setTimeout(() => {
-      animateDiscount1.style.setProperty(
-        "--animate-discount-1",
-        "animate-discount-1 .5s both"
-      );
-      animateDiscount1.style.setProperty(
-        "--shadow-discount",
-        "0 0 10px 5px #fff"
-      );
-      showDiscount.innerHTML = "";
-    }, 1000);
   }
   show(stateCode);
   hidden(getDiscountCode);
@@ -553,16 +634,20 @@ let finishPrice = $.querySelector(".discount-price");
 animateDiscount2.addEventListener("animationend", (event) => {
   if (event.animationName === "animate-discount-3") {
     animateDiscount2.style.setProperty("--arrow-discount", "5px solid #1149af");
-    if (discountPrice.slice(-1) == "%") {
-      allPrice *= (+discountPrice.slice(0, -1) / 100).toFixed(2);
+    if (discountPrice.split(" ")[1] == "درصد") {
+      console.log(discountPrice);
+      allPrice -= allPrice * (+discountPrice.split("درصد")[0] / 100).toFixed(2);
     } else {
-      allPrice -= +discountPrice;
+      allPrice -= Number(discountPrice.split("تومان")[0].split(",").join("."));
     }
     setTimeout(() => {
       finishPrice.innerHTML = `${virgolPriceOn(allPrice)} تومان`;
       contaianButton.style.justifyContent = "space-between";
+      discountReplaceText.firstElementChild.innerHTML = `تخفیف ${discountPrice}ی شما با موفقیت اعمال شد`;
       displayOn(discountReplaceText);
       show(discountReplaceText);
     }, 600);
+
+    containInfoProducts.style.setProperty("--disabled-ability", "none");
   }
 });

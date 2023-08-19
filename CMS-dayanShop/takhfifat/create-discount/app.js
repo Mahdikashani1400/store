@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
 });
 let hasDiscount = false;
 submitBtn.addEventListener("click", () => {
-  if (priceInput.value >= 10000 && discountInput.value.length > 3) {
+  if (discountInput.value.length > 3) {
     hasDiscount = discountsInfo.some((discount) => {
       if (discount.id != discountEditedId) {
         return discountInput.value.trim() === discount.code;
@@ -78,4 +78,21 @@ function resetInouts() {
   kindInput.value = "تخفیف ثابت سبد خرید";
   priceInput.value = 10000;
   discountInput.value = "";
+}
+let kindOfDiscount = $.getElementById("kindOfDiscount");
+kindOfDiscount.addEventListener("change", (e) => {
+  if (e.target.value.split(" ")[1] === "درصدی") {
+    setPriceInput(5);
+    priceInput.max = 100;
+    priceInput.previousElementSibling.innerHTML = "درصد تخفیف";
+  } else {
+    setPriceInput(10000);
+    priceInput.max = 999999;
+    priceInput.previousElementSibling.innerHTML = "مبلغ تخفیف (تومان)";
+  }
+});
+function setPriceInput(num) {
+  priceInput.value = num;
+  priceInput.min = num;
+  priceInput.step = num;
 }

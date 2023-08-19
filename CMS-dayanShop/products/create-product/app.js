@@ -58,10 +58,37 @@ let productsubsetFa = null;
 let kindEn = null;
 let kindFa = null;
 let targetList = null;
-
+let productEditedModel = new URLSearchParams(location.search).get("id");
+let productEdited = null;
 window.addEventListener("load", () => {
   setCategoryOfProduct();
   setKindOfProduct();
+  if (productEditedModel) {
+    for (let kind in productsInfo) {
+      if (kind != "models") {
+        productsInfo[kind] = productsInfo[kind].filter((product) => {
+          if (product.model === productEditedModel) {
+            productEdited = product;
+          }
+          return product.model != productEditedModel;
+        });
+      } else {
+        productsInfo[kind] = _.pull(productsInfo[kind], productEditedModel);
+      }
+    }
+    priceValue = productEdited.price;
+    colorValue = productEdited.color;
+
+    sizesArray = productEdited.sizes;
+    title.value = productEdited.title;
+
+    propertyHandler();
+  } else {
+    priceValue = 10000;
+    colorValue = englishColors[0];
+    sellerValue = "";
+    sizesArray = [];
+  }
 });
 
 function setCategoryOfProduct() {
@@ -76,7 +103,6 @@ function setCategoryOfProduct() {
      `
     );
     targetList = $.getElementById(menuStracture[i].name);
-    console.log("targetList");
 
     for (let j = 0; j < productList.subsetList.length; j++) {
       productsubsetEn = productList.subsetList[j];
@@ -104,7 +130,7 @@ function setKindOfProduct() {
 
   selectedOption = category.options[category.options.selectedIndex];
   selectedOptionId = selectedOption.id.split("-");
-  // imageName = menuStracture[selectedOptionId[0]].imageList[selectedOptionId[1]];
+
   for (
     let i = 0;
     i <
@@ -126,6 +152,7 @@ function setKindOfProduct() {
 }
 
 let title = $.getElementById("titleInput");
+title.value = "";
 let image = $.getElementById("mainImage");
 let imgInput = $.getElementById("imgInput");
 let btnSave = $.querySelector(".btn-save");
@@ -134,7 +161,6 @@ let productPropertyMenu = $.querySelector(".menu-info ul");
 let productProperty = $.querySelector(".text-info");
 let activeProperty = null;
 let productsInfo = JSON.parse(localStorage.getItem("products")) || {};
-console.log(productsInfo);
 imgInput.addEventListener("input", () => {
   image.src = URL.createObjectURL(imgInput.files[0]);
 });
@@ -160,21 +186,26 @@ function addProductHandler(e) {
       productsInfo[category.value].push({
         id: 0,
         state: e.target === btnSave ? false : true,
-        title: title.value,
+        title: _.trim(title.value.split("مدل")[0]),
         model: _.trim(title.value.split("مدل")[1]),
-        price: priceValue.toLocaleString("en-US").split(",")[0],
+        price: priceValue.toLocaleString("en-US").split(",")[0].slice(0, -3),
         color: colorValue,
+
         kind: kind.value.split("-")[0],
         kindFa: kind.value.split("-")[1],
 
         sizes: sizesArray,
-        image: image.src,
+        image: "new-product",
       });
       localStorage.setItem("products", JSON.stringify(productsInfo));
+      window.location.href = window.location.href.replace(
+        "create-product",
+        "product-list"
+      );
     } else {
       Toast.fire({
         icon: "warning",
-        // position: "topRight",
+
         text: "یک عدد محصول با چنین مدلی ثبت شده است.",
         timer: 2500,
       });
@@ -206,18 +237,18 @@ let sizeInput = null;
 let containSizes = null;
 
 let selectColorContainer = null;
-let colorValue = englishColors[0];
+let colorValue;
 window.changeColor = changeColor;
 function changeColor(e) {
   colorValue = e.target.value;
 }
-let priceValue = 10000;
+let priceValue;
 
 window.changePrice = changePrice;
 function changePrice(e) {
   priceValue = e.target.value;
 }
-let sellerValue = "";
+let sellerValue;
 
 window.changeSeller = changeSeller;
 function changeSeller(e) {
@@ -230,11 +261,15 @@ function changeBrand(e) {
   brandValue = e.target.value;
 }
 
-productPropertyMenu.addEventListener("click", (e) => {
-  activeProperty = $.querySelector("a.active");
-  activeProperty.classList.remove("active");
-  e.target.classList.add("active");
-  if (e.target.textContent === "قیمت") {
+productPropertyMenu.addEventListener("click", propertyHandler);
+function propertyHandler(e) {
+  if (e) {
+    e.preventDefault();
+    activeProperty = $.querySelector("a.active");
+    activeProperty.classList.remove("active");
+    e.target.classList.add("active");
+  }
+  if (e?.target.textContent === "قیمت" || !e) {
     productProperty.innerHTML = `
     <div class="contain-input-info flex-row">
     <label for="">قیمت اصلی (تومان)</label>
@@ -266,7 +301,9 @@ productPropertyMenu.addEventListener("click", (e) => {
     productProperty.innerHTML = `
     <div class="contain-input-info flex-row">
     <label for="">رنگ محصول</label>
-    <select class="input-handler" id="colors" onchange="changeColor(event)"></select>
+    <select class="input-handler" id="colors" onchange="changeColor(event)" value="${
+      productEdited?.color && ""
+    }"></select>
   </div>
   <div
     class="contain-input-info flex-row"
@@ -330,8 +367,9 @@ productPropertyMenu.addEventListener("click", (e) => {
   </div>
     `;
   }
-});
-let sizesArray = [];
+}
+
+let sizesArray;
 
 window.sizeInputHandler = sizeInputHandler;
 function sizeInputHandler() {
