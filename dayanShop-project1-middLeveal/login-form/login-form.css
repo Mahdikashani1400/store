@@ -107,67 +107,6 @@ input[type="checkbox"] {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 975px) {
-  .contain-all-products {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  input[type="range"] {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 810px) {
-  .contain-page-shop {
-    gap: 1.5rem;
-    justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  h4 {
-    font-size: 18px !important;
-  }
-}
-
-@media only screen and (max-width: 639px) {
-  .alert-error-product {
-    font-size: 19px;
-  }
-  .alert-product-situation {
-    width: 80%;
-    padding: 25px;
-  }
-  .contain-back-topage {
-    font-size: 18px;
-    align-self: center;
-  }
-  .input-form {
-    margin: 0 1rem !important;
-  }
-  .contain-login-form {
-    padding: 1.2rem 0.2rem !important;
-  }
-  form * {
-    font-size: 90%;
-  }
-  form input,
-  .login-btn {
-    width: 16rem !important;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .login-error {
-    width: 300px !important;
-  }
-}
-
-@media only screen and (max-width: 438px) {
-  .preloader-change-page {
-    width: 120px;
-  }
-}
-
 .contain-login-form {
   max-width: 460px;
   padding: 2rem 3rem;
@@ -185,12 +124,8 @@ input[type="checkbox"] {
   gap: 2rem;
   padding: 1rem 0;
 }
-/* #divName {
-  margin-bottom: 0 !important;
-} */
 
 .input-form {
-  /* margin: 2rem; */
   position: relative;
 }
 
@@ -223,7 +158,7 @@ input:focus {
   font-size: 16px;
   color: #fff;
   font-weight: 500;
-  max-width: 90%;
+  max-width: 95%;
   margin: 1rem 0 0.5rem;
   border-color: #ff6769;
   background-color: #ff6769;
@@ -261,4 +196,72 @@ input:focus {
   height: max-content;
   z-index: 2222;
   top: 0;
+}
+
+@media only screen and (max-width: 975px) {
+  .contain-all-products {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  input[type="range"] {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .contain-page-shop {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  .error-input {
+    font-size: 10px !important;
+    top: 32px !important;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  h4 {
+    font-size: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .alert-error-product {
+    font-size: 19px;
+  }
+  .alert-product-situation {
+    width: 80%;
+    padding: 25px;
+  }
+  .contain-back-topage {
+    font-size: 18px;
+    align-self: center;
+  }
+  .input-form {
+    margin: 0 1rem !important;
+  }
+  .contain-login-form {
+    padding: 1.2rem 0.2rem !important;
+  }
+  form * {
+    font-size: 90%;
+  }
+  form input,
+  .login-btn {
+    width: 16rem !important;
+  }
+  .error-input {
+    font-size: 9px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login-error {
+    width: 300px !important;
+  }
+}
+
+@media only screen and (max-width: 438px) {
+  .preloader-change-page {
+    width: 120px;
+  }
 }

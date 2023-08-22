@@ -297,7 +297,6 @@ const checkUser = (state) => {
   usersInfo.push(adminInfo);
   hasUser = usersInfo.some((user) => {
     findInfo = user;
-    console.log(user);
     return user.username === username.value.trim();
   });
   try {
