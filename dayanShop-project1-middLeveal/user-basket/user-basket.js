@@ -636,12 +636,12 @@ animateDiscount2.addEventListener("animationend", (event) => {
     animateDiscount2.style.setProperty("--arrow-discount", "5px solid #1149af");
     if (discountPrice.split(" ")[1] == "درصد") {
       console.log(discountPrice);
-      allPrice -= allPrice * (+discountPrice.split("درصد")[0] / 100).toFixed(2);
+      allPrice -= allPrice * (+discountPrice.split("درصد")[0] / 100);
     } else {
       allPrice -= Number(discountPrice.split("تومان")[0].split(",").join("."));
     }
     setTimeout(() => {
-      finishPrice.innerHTML = `${virgolPriceOn(allPrice)} تومان`;
+      finishPrice.innerHTML = `${virgolPriceOn(allPrice.toFixed(2))} تومان`;
       contaianButton.style.justifyContent = "space-between";
       discountReplaceText.firstElementChild.innerHTML = `تخفیف ${discountPrice}ی شما با موفقیت اعمال شد`;
       displayOn(discountReplaceText);
