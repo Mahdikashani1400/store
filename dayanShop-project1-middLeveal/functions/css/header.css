@@ -84,6 +84,7 @@ img {
 }
 
 .enter-text-header {
+  cursor: pointer;
 }
 
 .search-box-header {

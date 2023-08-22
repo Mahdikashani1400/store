@@ -866,7 +866,7 @@ const userLoginHandler = () => {
       window.addEventListener("resize", () => {
         headerSizeHandler(userInfo, showTextElem);
       });
-
+      showTextElem.setAttribute("href", "#");
       $.querySelector(".exit").addEventListener("click", () => {
         $.cookie = `user=${JSON.stringify(null)};path=/`;
         window.history.go(0);
@@ -876,7 +876,8 @@ const userLoginHandler = () => {
     } else {
       showTextElem.innerHTML = "ورود / عضویت";
       showTextElem.addEventListener("click", () => {
-        window.location.href = "../login-form/login-form.html";
+        // window.location.href = "../login-form/login-form.html";
+        showTextElem.setAttribute("href", "../login-form/login-form.html");
       });
     }
   }
