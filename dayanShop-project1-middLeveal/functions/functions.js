@@ -857,7 +857,8 @@ const userLoginHandler = () => {
     return item.split("=")[0].trim() === "user";
   })[0];
   let showTextElem = $.querySelector(".enter-text-header");
-  console.log(userInfo);
+  showTextElem.href = "../login-form/login-form.html";
+
   if (userInfo) {
     if (JSON.parse(userInfo.split("=")[1])) {
       showTextElem.classList.add("show-user-info");
@@ -875,10 +876,6 @@ const userLoginHandler = () => {
       });
     } else {
       showTextElem.innerHTML = "ورود / عضویت";
-      showTextElem.addEventListener("click", () => {
-        // window.location.href = "../login-form/login-form.html";
-        showTextElem.setAttribute("href", "../login-form/login-form.html");
-      });
     }
   }
 };
