@@ -142,7 +142,7 @@ input[type="checkbox"] {
     align-self: center;
   }
   .input-form {
-    margin: 1.5rem 1rem !important;
+    margin: 0 1rem !important;
   }
   .contain-login-form {
     padding: 1.2rem 0.2rem !important;
@@ -170,7 +170,7 @@ input[type="checkbox"] {
 
 .contain-login-form {
   max-width: 460px;
-  padding: 30px;
+  padding: 2rem 3rem;
   padding-bottom: 20px;
   border: 1px solid #eee;
   border-radius: 10px;
@@ -181,13 +181,15 @@ input[type="checkbox"] {
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
   margin: 4rem 0;
 }
-
-#divName {
-  margin-bottom: 0 !important;
+.login-form {
+  gap: 1.5rem;
 }
+/* #divName {
+  margin-bottom: 0 !important;
+} */
 
 .input-form {
-  margin: 2rem;
+  /* margin: 2rem; */
   position: relative;
 }
 
@@ -220,8 +222,8 @@ input:focus {
   font-size: 16px;
   color: #fff;
   font-weight: 500;
-  max-width: 85%;
-  margin: 5px 0;
+  max-width: 90%;
+  margin: 1rem 0 0.5rem;
   border-color: #ff6769;
   background-color: #ff6769;
   cursor: pointer;

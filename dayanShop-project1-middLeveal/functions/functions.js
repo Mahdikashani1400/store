@@ -858,25 +858,27 @@ const userLoginHandler = () => {
   })[0];
   let showTextElem = $.querySelector(".enter-text-header");
   console.log(userInfo);
-  if (JSON.parse(userInfo.split("=")[1])) {
-    showTextElem.classList.add("show-user-info");
-    showTextElem.classList.remove("enter-text-header");
-    headerSizeHandler(userInfo, showTextElem);
-    window.addEventListener("resize", () => {
+  if (userInfo) {
+    if (JSON.parse(userInfo.split("=")[1])) {
+      showTextElem.classList.add("show-user-info");
+      showTextElem.classList.remove("enter-text-header");
       headerSizeHandler(userInfo, showTextElem);
-    });
+      window.addEventListener("resize", () => {
+        headerSizeHandler(userInfo, showTextElem);
+      });
 
-    $.querySelector(".exit").addEventListener("click", () => {
-      $.cookie = `user=${JSON.stringify(null)};path=/`;
-      window.history.go(0);
-      showTextElem.classList.remove("show-user-info");
-      showTextElem.classList.add("enter-text-header");
-    });
-  } else {
-    showTextElem.innerHTML = "ورود / عضویت";
-    showTextElem.addEventListener("click", () => {
-      window.location.href = "../login-form/login-form.html";
-    });
+      $.querySelector(".exit").addEventListener("click", () => {
+        $.cookie = `user=${JSON.stringify(null)};path=/`;
+        window.history.go(0);
+        showTextElem.classList.remove("show-user-info");
+        showTextElem.classList.add("enter-text-header");
+      });
+    } else {
+      showTextElem.innerHTML = "ورود / عضویت";
+      showTextElem.addEventListener("click", () => {
+        window.location.href = "../login-form/login-form.html";
+      });
+    }
   }
 };
 const goToUserBasket = () => {
