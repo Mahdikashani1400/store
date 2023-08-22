@@ -141,6 +141,15 @@ input[type="checkbox"] {
     font-size: 18px;
     align-self: center;
   }
+  .input-form {
+    margin: 1.5rem 1rem !important;
+  }
+  .contain-login-form {
+    padding: 1.2rem;
+  }
+  form * {
+    font-size: 90%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -241,8 +250,4 @@ input:focus {
   height: max-content;
   z-index: 2222;
   top: 0;
-}
-
-.modals div {
-
 }
