@@ -305,7 +305,7 @@ const checkUser = (state) => {
     });
   } catch (error) {}
   userIn = hasEmail || hasUser;
-
+  usersInfo.pop();
   if (userIn && state === "signIn") {
     password.value === findInfo["password"]
       ? showModal(loginError, "accept", "signIn")
