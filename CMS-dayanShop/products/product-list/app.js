@@ -1,9 +1,18 @@
+import { allProducts } from "../../../dayanShop-project1-middLeveal/functions/functions.js";
 import { Header } from "../../functions/js/header.js";
 import { Toast } from "../../functions/js/modals.js";
 
 window.customElements.define("header-section", Header);
 let $ = document;
 let productsInfo = JSON.parse(localStorage.getItem("products"));
+
+if (!productsInfo) {
+
+  localStorage.setItem("products", JSON.stringify(allProducts))
+  productsInfo = JSON.parse(localStorage.getItem("products"));
+}
+
+
 
 let tBody = $.querySelector("tbody");
 let menuStracture = [
@@ -64,6 +73,7 @@ function setCategoryOfProduct() {
   category.innerHTML = `<option value="همه">همه</option>`;
   for (let i = 0; i < menuStracture.length; i++) {
     productList = menuStracture[i];
+    console.log(productList);
     category.insertAdjacentHTML(
       "beforeend",
       `
@@ -100,41 +110,22 @@ function getProducts() {
       productsInfo.forEach((kind) => {
         if (isNaN(kind[0])) {
           _.map(kind, (product) => {
+            console.log(product);
             tBody.insertAdjacentHTML(
               "afterbegin",
               `<tr>
-        <td>
-        <input
-          type="checkbox"
-          name="select-item-table discount"
-          id=""
-          onclick="checkHandler('${product.model}')"
-          ${product.state ? "checked" : ""}
-        />
-      </td>
+      
         <td>${product.model}</td>
         <td>
-          <img src="../../takhfifat/img/admin-photo.jpg" alt="" />
+             <img src="../../../dayanShop-project1-middLeveal/images/${product.image.split("images/")[1]}" alt="" />
+
         </td>
         <td>${product.title.split("مدل")[0]}</td>
-        <td>${product.kindFa}</td>
-        <td>${Number(product.price).toLocaleString("en-US")}</td>
-        <td>
-          <div class="btn-item-table flex-row">
-              <a href="${window.location.href.replace(
-                "product-list",
-                "create-product"
-              )}?id=${product.model}" class="flex-row edit-item-table">
-                <i class="fa fa-pencil"></i> ویرایش
-              </a>
-
-              <a href="#" class="flex-row remove-item-table" onclick="removeDiscount('${
-                product.model
-              }')">
-                <i class="fa fa-trash-o"></i> حذف</a
-              >
-          </div>
-        </td>
+        <td>${product.kind}</td>
+        <td><div>
+        ${Number(product.price).toLocaleString("en-US")}
+        </div></td>
+       
       </tr>
         `
             );
@@ -146,37 +137,15 @@ function getProducts() {
         tBody.insertAdjacentHTML(
           "afterbegin",
           `<tr>
-        <td>
-        <input
-          type="checkbox"
-          name="select-item-table discount"
-          id=""
-          onclick="checkHandler('${product.model}')"
-          ${product.state ? "checked" : ""}
-        />
-      </td>
+      
         <td>${product.model}</td>
         <td>
-          <img src="../../takhfifat/img/admin-photo.jpg" alt="" />
+          <img src="../../../dayanShop-project1-middLeveal/images/${product.image.split("images/")[1]}" alt="" />
         </td>
         <td>${product.title.split("مدل")[0]}</td>
-        <td>${product.kindFa}</td>
+        <td>${product.kind}</td>
         <td>${Number(product.price).toLocaleString("en-US")}</td>
-        <td>
-          <div class="btn-item-table flex-row">
-              <a href="${window.location.href.replace(
-                "product-list",
-                "create-product"
-              )}?id=${product.model}" class="flex-row edit-item-table">
-                <i class="fa fa-pencil"></i> ویرایش
-              </a>
-
-              <a href="" class="flex-row remove-item-table"
-              onclick="removeDiscount('${product.model}')">
-                <i class="fa fa-trash-o"></i> حذف</a
-              >
-          </div>
-        </td>
+    
       </tr>
         `
         );

@@ -54,7 +54,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
         >
         <ul>
         <a href="../../products/product-list/index.html"><i class="fa fa-circle"></i><span>لیست محصولات</span></a>
-        <a href="../../products/create-product/index.html"><i class="fa fa-circle"></i><span>محصول جدید</span></a>
         </ul>
       </li>
       <li class="item">
@@ -125,9 +124,8 @@ class Header extends HTMLElement {
     headerSection.insertAdjacentHTML(
       "beforebegin",
       `
-    <link rel="stylesheet" href="../../${
-      this.getAttribute("css-link").split("/")[0]
-    }/${this.getAttribute("css-link").split("/")[1]}/style.css">
+    <link rel="stylesheet" href="../../${this.getAttribute("css-link").split("/")[0]
+      }/${this.getAttribute("css-link").split("/")[1]}/style.css">
 
     `
     );
@@ -213,7 +211,7 @@ class Header extends HTMLElement {
     elem.classList.add(add);
   }
 
-  disconnectedCallback() {}
+  disconnectedCallback() { }
   static observedAttributes() {
     return ["title", "css-link"];
   }

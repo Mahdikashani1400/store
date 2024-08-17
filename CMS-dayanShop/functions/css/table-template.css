@@ -129,7 +129,7 @@ th {
 td {
   text-align: center;
   width: 100px;
-  padding: 0.3rem;
+  padding-bottom: 2rem;
 }
 
 .code-item-table,
