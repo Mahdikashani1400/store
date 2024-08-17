@@ -1,9 +1,22 @@
 # E-Commerce Website
 
-This is an e-commerce website built with plain HTML, CSS, and JavaScript. It includes both user and admin panels, using Local Storage instead of a backend.
+## Table of Contents
+- [General Info](#general-info)
+- [Technologies](#technologies)
+- [Features](#features)
+  - [User Panel](#user-panel)
+  - [Admin Panel](#admin-panel)
+- [Preview](#preview)
+- [Note](#note)
 
-## Live Demo
-Check out the live project [here](https://mahdikashani1400.github.io/store/dayanShop-project1-middLeveal/main-page/main-page.html).
+## General Info
+This project is a fully functional e-commerce website created using plain HTML, CSS, and JavaScript. It features both user and admin panels, with all data management handled via Local Storage. The website simulates a complete e-commerce experience without the need for a backend.
+
+## Technologies
+- **HTML5**: Markup language used for structuring and presenting content.
+- **CSS3**: Styling language used to design the website.
+- **JavaScript (ES6+)**: Programming language used to implement website functionality.
+- **Local Storage**: Used for storing data persistently within the browser.
 
 ## Features
 
@@ -22,6 +35,9 @@ Check out the live project [here](https://mahdikashani1400.github.io/store/dayan
 - Add, edit, and delete fixed or random discount codes
 - Manage users (add, edit, delete)
 - View inventory of available products
+
+## Preview
+Check out the live demo [here](https://mahdikashani1400.github.io/store/dayanShop-project1-middLeveal/).
 
 ## Note
 This project does not have a backend; Local Storage is used for data management.
