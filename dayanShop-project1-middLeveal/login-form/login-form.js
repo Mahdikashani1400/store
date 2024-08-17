@@ -68,7 +68,7 @@ let username = $.getElementById("username");
 let password = $.getElementById("password");
 let acceptBtn = $.querySelector(".login-btn");
 let isEmail =
-  /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+  /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 let isUser = /^\w{8,1000}$/;
 let isPass = /^\w{8,1000}$/;
 let capitalPass = /[A-Z]/;
@@ -213,7 +213,7 @@ const clearInput = () => {
     email.value = "";
     email.style.borderColor = "#e6e8ef";
     emailError.innerHTML = "";
-  } catch (error) {}
+  } catch (error) { }
   password.value = "";
   password.style.borderColor = "#e6e8ef";
 
@@ -303,7 +303,7 @@ const checkUser = (state) => {
     hasEmail = usersInfo.some((user) => {
       return user.email === email.value.trim();
     });
-  } catch (error) {}
+  } catch (error) { }
   userIn = hasEmail || hasUser;
   usersInfo.pop();
   if (userIn && state === "signIn") {
