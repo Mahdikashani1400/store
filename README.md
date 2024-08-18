@@ -37,7 +37,10 @@ This project is a fully functional e-commerce website created using plain HTML, 
 - View inventory of available products
 
 ## Preview
-Check out the live demo [here](https://mahdikashani1400.github.io/store/dayanShop-project1-middLeveal/).
+Check out the live demo [here](https://mahdikashani1400.github.io/store/dayanShop-project1-middLeveal/main-page/main-page.html).
 
-## Note
-This project does not have a backend; Local Storage is used for data management.
+## Login Credentials
+
+- **Admin**: 
+  - Username: `adminadmin`
+  - Password: `Admin123456`
