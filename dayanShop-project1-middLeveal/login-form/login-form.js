@@ -60,7 +60,7 @@ let adminInfo = {
   username: "adminadmin",
   name: "محمد جووون",
   email: "admin.admin@gmail.com",
-  password: "Admin123456",
+  password: "adminadmin",
 };
 let userId = null;
 let allOfThing = $.getElementById("all");
