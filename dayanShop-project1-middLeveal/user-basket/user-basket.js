@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
     if (allOfInfoProducts === null) {
       allOfInfoProducts = [];
     }
-  } catch {}
+  } catch { }
   console.log(allOfInfoProducts);
   try {
     if (allOfInfoProducts) {
@@ -80,30 +80,26 @@ window.addEventListener("load", () => {
         containInfoProducts.insertAdjacentHTML(
           "beforeend",
           `
-        <div class="contain-product-particulars" id="${product.model}-${
-            product.id
+        <div class="contain-product-particulars" id="${product.model}-${product.id
           }-container">
         <div class="contain-image-product flex-center">
-            <img src="${
-              product?.state ? imgNewData : product.image
-            }" alt="" class="image-product-particular" />
+            <img src="${product?.state ? imgNewData : product.image
+          }" alt="" class="image-product-particular" />
         </div>
         <div class="contain-model-product">
             <h6 class="model-product-particular">
                 ${product.title} مدل ${product.model}
             </h6>
             <span class="size-product-particular">سایز ${product.title
-              .split(" ")
-              .slice(0, 2)
-              .join(" ")}: ${product.size}</span>
+            .split(" ")
+            .slice(0, 2)
+            .join(" ")}: ${product.size}</span>
         </div>
         <div class="contain-input-count">
             <i class="increase-input-count fa" onclick="countPlus(event)">&#xf107;</i>
             <span class="increase-input-count fa" onclick="countPlus(event)">+</span>
-            <input type="number" name="" id="${product.model}-${
-            product.id
-          }-input" class="input-count-product" value="${
-            product.count
+            <input type="number" name="" id="${product.model}-${product.id
+          }-input" class="input-count-product" value="${product.count
           }" min="1" readonly />
             <i class="decrease-input-count fa" onclick="countMinus(event)">&#xf107;</i>
             <span class="decrease-input-count fa" onclick="countMinus(event)">_</span>
@@ -114,8 +110,8 @@ window.addEventListener("load", () => {
     </div>
     <div class="contain-price-product">
         <span class="price-product-particular">${virgolPriceOn(
-          product.price
-        )} تومان</span>
+            product.price
+          )} تومان</span>
     </div>
     <div class="contain-remove-product" >
         <i class="icon-remove-product fas" onclick="removeProduct(event)"> &#xf2ed;</i>
@@ -141,36 +137,31 @@ window.addEventListener("load", () => {
       containInfoProducts.insertAdjacentHTML(
         "beforeend",
         `
-        <div class="contain-product-particulars" id="${
-          productTargetInfo[productTarget[1] - 1].model
+        <div class="contain-product-particulars" id="${productTargetInfo[productTarget[1] - 1].model
         }-${productTargetInfo[productTarget[1] - 1].id}-container">
         <div class="contain-image-product flex-center">
-            <img src="${
-              product?.state
-                ? imgNewData
-                : productTargetInfo[productTarget[1] - 1].image
-            }" alt="" class="image-product-particular" />
+            <img src="${product?.state
+          ? imgNewData
+          : productTargetInfo[productTarget[1] - 1].image
+        }" alt="" class="image-product-particular" />
         </div>
         <div class="contain-model-product">
             <h6 class="model-product-particular">
-                ${productTargetInfo[productTarget[1] - 1].title} مدل ${
-          productTargetInfo[productTarget[1] - 1].model
+                ${productTargetInfo[productTarget[1] - 1].title} مدل ${productTargetInfo[productTarget[1] - 1].model
         }
             </h6>
             <span class="size-product-particular">سایز ${productTargetInfo[
-              productTarget[1] - 1
-            ].title
-              .split(" ")
-              .slice(0, 2)
-              .join(" ")}: ${productTarget[2]}</span>
+          productTarget[1] - 1
+        ].title
+          .split(" ")
+          .slice(0, 2)
+          .join(" ")}: ${productTarget[2]}</span>
         </div>
         <div class="contain-input-count">
             <i class="increase-input-count fa" onclick="countPlus(event)">&#xf107;</i>
             <span class="increase-input-count fa" onclick="countPlus(event)">+</span>
-            <input type="number" name="" id="${
-              productTargetInfo[productTarget[1] - 1].model
-            }-${
-          productTargetInfo[productTarget[1] - 1].id
+            <input type="number" name="" id="${productTargetInfo[productTarget[1] - 1].model
+        }-${productTargetInfo[productTarget[1] - 1].id
         }-input" class="input-count-product" value="1" min="1" readonly />
             <i class="decrease-input-count fa" onclick="countMinus(event)">&#xf107;</i>
             <span class="decrease-input-count fa" onclick="countMinus(event)">_</span>
@@ -207,7 +198,7 @@ window.addEventListener("load", () => {
         alertError.innerHTML = "کالایی در سبد خرید شما وجود ندارد ...";
         displayOn(backElement);
         backElement.addEventListener("click", () => {
-          location.href = location.pathname.replace("user-basket", "main-page");
+          location.href = "../main-page/main-page.html";
         });
       }, 1500);
     } else {
@@ -218,30 +209,26 @@ window.addEventListener("load", () => {
         containInfoProducts.insertAdjacentHTML(
           "beforeend",
           `
-        <div class="contain-product-particulars" id="${product.model}-${
-            product.id
+        <div class="contain-product-particulars" id="${product.model}-${product.id
           }-container">
         <div class="contain-image-product flex-center">
-            <img src="${
-              product?.state ? imgNewData : product.image
-            }" alt="" class="image-product-particular" />
+            <img src="${product?.state ? imgNewData : product.image
+          }" alt="" class="image-product-particular" />
         </div>
         <div class="contain-model-product">
             <h6 class="model-product-particular">
                 ${product.title} مدل ${product.model}
             </h6>
             <span class="size-product-particular">سایز ${product.title
-              .split(" ")
-              .slice(0, 2)
-              .join(" ")}: ${product.size}</span>
+            .split(" ")
+            .slice(0, 2)
+            .join(" ")}: ${product.size}</span>
         </div>
         <div class="contain-input-count">
             <i class="increase-input-count fa" onclick="countPlus(event)">&#xf107;</i>
             <span class="increase-input-count fa" onclick="countPlus(event)">+</span>
-            <input type="number" name="" id="${product.model}-${
-            product.id
-          }-input" class="input-count-product" value="${
-            product.count
+            <input type="number" name="" id="${product.model}-${product.id
+          }-input" class="input-count-product" value="${product.count
           }" min="1" readonly />
             <i class="decrease-input-count fa" onclick="countMinus(event)">&#xf107;</i>
             <span class="decrease-input-count fa"  onclick="countMinus(event)">_</span>
@@ -252,8 +239,8 @@ window.addEventListener("load", () => {
     </div>
     <div class="contain-price-product">
         <span class="price-product-particular">${virgolPriceOn(
-          product.price
-        )} تومان</span>
+            product.price
+          )} تومان</span>
     </div>
     <div class="contain-remove-product" >
         <i class="icon-remove-product fas" onclick="removeProduct(event)"> &#xf2ed;</i>
@@ -429,10 +416,10 @@ let countOfCodeVar =
   countOfCode == 2 || countOfCode == 3
     ? 0
     : countOfCode == 4 || countOfCode == 5
-    ? 1
-    : countOfCode == 6 || countOfCode == 7
-    ? 2
-    : "";
+      ? 1
+      : countOfCode == 6 || countOfCode == 7
+        ? 2
+        : "";
 function createChanceCircle() {
   chanceCircle.width = 300;
   chanceCircle.height = 300;
@@ -474,9 +461,8 @@ function createChanceCircle() {
 }
 createChanceCircle();
 function randomColor() {
-  return `rgb(${Math.random() * 200},${Math.random() * 200},${
-    Math.random() * 200
-  })`;
+  return `rgb(${Math.random() * 200},${Math.random() * 200},${Math.random() * 200
+    })`;
 }
 
 closeCodeText.addEventListener("click", () => {
