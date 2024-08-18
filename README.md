@@ -43,4 +43,4 @@ Check out the live demo [here](https://mahdikashani1400.github.io/store/dayanSho
 
 - **Admin**: 
   - Username: `adminadmin`
-  - Password: `Admin123456`
+  - Password: `adminadmin`

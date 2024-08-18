@@ -54,7 +54,6 @@ function backToPreviousPage() {
 
 let productSituation = $.querySelector(".alert-product-situation");
 
-let usersInfo = JSON.parse(localStorage.getItem("users")) || [];
 let adminInfo = {
   id: 0,
   username: "adminadmin",
@@ -62,6 +61,7 @@ let adminInfo = {
   email: "admin.admin@gmail.com",
   password: "adminadmin",
 };
+let usersInfo = JSON.parse(localStorage.getItem("users")) || [...adminInfo];
 let userId = null;
 let allOfThing = $.getElementById("all");
 let username = $.getElementById("username");
@@ -294,7 +294,6 @@ let findInfo = null;
 let hasUser;
 let hasEmail;
 const checkUser = (state) => {
-  usersInfo.push(adminInfo);
   hasUser = usersInfo.some((user) => {
     findInfo = user;
     return user.username === username.value.trim();
