@@ -65,7 +65,7 @@ let adminInfo = {
 };
 if (!usersInfo) {
   usersInfo = [...adminInfo]
-  localStorage.setItem('users', JSON.stringify([...adminInfo]))
+  localStorage.setItem('users', JSON.stringify([adminInfo]))
 
 }
 let userId = null;
