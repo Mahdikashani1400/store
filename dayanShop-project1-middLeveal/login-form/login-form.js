@@ -64,7 +64,7 @@ let adminInfo = {
   password: "adminadmin",
 };
 if (!usersInfo) {
-  usersInfo = [...adminInfo]
+  usersInfo = [adminInfo]
   localStorage.setItem('users', JSON.stringify([adminInfo]))
 
 }
